@@ -17,15 +17,6 @@ mates and degrees of freedom.
 
 ![Onshape models](images/onshape-models.png)
 
-| ชิ้นงาน | จุดที่ได้ฝึก |
-|---|---|
-| **บันไดขั้นบันไดมีล้อ** (mobile step ladder) | โครงท่อโค้ง งานเชื่อมประกอบ แผ่นขั้นบันได |
-| **โครงเก้าอี้** (chair frame) | ท่อดัดหลายระนาบ ความสมมาตร |
-| **ปากกาจับชิ้นงาน** (machine vise) | เกลียวนำ (lead screw) และการเคลื่อนที่เชิงเส้นของปากจับ |
-| **Toggle clamp บนจิ๊ก** | กลไกข้อต่อหลายชิ้น mate แบบหมุน การถ่ายแรง |
-| **Push-pull toggle clamp** | ลิงก์เกจและระยะเคลื่อนที่ |
-| **จิ๊กยึดชิ้นงานพร้อมหน้าแปลน** | การจัดวางชิ้นงานบนฐาน การใช้ fastener |
-
 ## ทักษะที่ใช้ / Skills
 
 - Parametric part modelling — sketch, extrude, revolve, sweep, sheet metal
