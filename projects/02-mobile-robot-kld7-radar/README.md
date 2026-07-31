@@ -14,11 +14,11 @@
 
 ## ภาพรวม / Overview
 
-**TH** — เรดาร์ Doppler ตัวเดียวที่ติดตั้งอยู่กับที่ ทำหน้าที่เป็น "ระบบระบุตำแหน่ง" ให้หุ่นยนต์ที่ไม่มีทั้ง encoder และ IMU
+**TH** — เรดาร์ที่ติดตั้งอยู่กับที่ ทำหน้าที่เป็น "ระบบระบุตำแหน่ง" ให้หุ่นยนต์ที่ไม่มีทั้ง encoder และ IMU
 ฝั่ง PC เขียนเป็นโปรแกรม Python/Tkinter อ่านข้อมูลจากเรดาร์ RFbeam **K-LD7** ผ่าน UART พล็อตกราฟแบบเรียลไทม์
 บันทึกลง CSV และสั่งงานหุ่นยนต์ผ่าน Bluetooth ผู้ใช้คลิกจุดเป้าหมายบนแผนที่เรดาร์แล้วหุ่นยนต์จะขับไปเอง
 
-**EN** — A single stationary Doppler radar acts as the positioning system for a robot that has neither encoders
+**EN** — A single stationary radar acts as the positioning system for a robot that has neither encoders
 nor an IMU. A Python/Tkinter ground station reads the RFbeam **K-LD7** over UART, plots live data, logs to CSV,
 and drives the robot over Bluetooth. Click a goal on the radar map and the robot navigates to it.
 
