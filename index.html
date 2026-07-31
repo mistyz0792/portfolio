@@ -18,6 +18,46 @@
 <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
 <div class="grain" aria-hidden="true"></div>
 <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+<div class="cursor-label" id="cursor-label" aria-hidden="true"></div>
+
+<!-- boot screen -->
+<div class="boot" id="boot">
+  <div class="boot-inner">
+    <div class="boot-ring"><span></span></div>
+    <p class="boot-name">THEECHARAT KLAININ</p>
+    <p class="boot-status" id="boot-status">INITIALISING</p>
+    <div class="boot-bar"><span id="boot-bar"></span></div>
+  </div>
+</div>
+
+<!-- section rail -->
+<nav class="rail" id="rail" aria-label="Section navigation"></nav>
+
+<!-- toasts -->
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<!-- back to top -->
+<button class="fab" id="fab" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 5l7 7-1.4 1.4L13 8.8V20h-2V8.8L6.4 13.4 5 12z" fill="currentColor"/></svg>
+</button>
+
+<!-- command palette -->
+<div class="palette" id="palette" hidden>
+  <div class="palette-backdrop" data-palette-close></div>
+  <div class="palette-panel" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="palette-input">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M10 2a8 8 0 1 0 4.9 14.3l5.4 5.4 1.4-1.4-5.4-5.4A8 8 0 0 0 10 2zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12z" fill="currentColor"/></svg>
+      <input id="palette-q" type="text" autocomplete="off" spellcheck="false">
+      <kbd>ESC</kbd>
+    </div>
+    <div class="palette-results" id="palette-results"></div>
+    <div class="palette-foot">
+      <span><kbd>↑</kbd><kbd>↓</kbd> <span class="th">เลื่อน</span><span class="en">navigate</span></span>
+      <span><kbd>↵</kbd> <span class="th">เปิด</span><span class="en">open</span></span>
+      <span><kbd>ESC</kbd> <span class="th">ปิด</span><span class="en">close</span></span>
+    </div>
+  </div>
+</div>
 
 <nav id="nav">
   <div class="wrap nav-inner">
@@ -33,6 +73,11 @@
       <a href="#contact"><span class="th">ติดต่อ</span><span class="en">Contact</span></a>
     </div>
     <div class="nav-actions">
+      <button class="cmdk" id="cmdk-open" type="button">
+        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M10 2a8 8 0 1 0 4.9 14.3l5.4 5.4 1.4-1.4-5.4-5.4A8 8 0 0 0 10 2zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12z" fill="currentColor"/></svg>
+        <span class="th">ค้นหา</span><span class="en">Search</span>
+        <kbd id="cmdk-hint">Ctrl K</kbd>
+      </button>
       <button id="lang-toggle" type="button" aria-label="Switch language">EN</button>
       <button id="theme-toggle" type="button" aria-label="Switch theme">
         <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="currentColor"/></svg>
@@ -68,10 +113,10 @@
       <ul class="contact-chips">
         <li><a href="tel:+66929574621">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
-          +66 92-957-4621</a></li>
+          +66 92-957-4621</a><button class="copy" type="button" data-copy="+66929574621" data-label-th="คัดลอกเบอร์แล้ว" data-label-en="Phone number copied" aria-label="Copy phone number"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11z" fill="currentColor"/></svg></button></li>
         <li><a href="mailto:k.theecharat@gmail.com">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z" fill="currentColor"/></svg>
-          k.theecharat@gmail.com</a></li>
+          k.theecharat@gmail.com</a><button class="copy" type="button" data-copy="k.theecharat@gmail.com" data-label-th="คัดลอกอีเมลแล้ว" data-label-en="Email copied" aria-label="Copy email address"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11z" fill="currentColor"/></svg></button></li>
         <li><a href="https://github.com/mistyz0792">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.08.68-.22.68-.48v-1.7C6.73 19.9 6.14 18 6.14 18a2.7 2.7 0 0 0-1.13-1.49c-.92-.63.07-.62.07-.62a2.14 2.14 0 0 1 1.56 1.05 2.17 2.17 0 0 0 2.96.85 2.18 2.18 0 0 1 .65-1.37c-2.22-.25-4.55-1.11-4.55-4.94a3.87 3.87 0 0 1 1.03-2.69 3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.03a9.4 9.4 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03a3.6 3.6 0 0 1 .1 2.64 3.87 3.87 0 0 1 1.03 2.69c0 3.84-2.34 4.69-4.57 4.93a2.43 2.43 0 0 1 .69 1.88v2.79c0 .27.18.58.69.48A10 10 0 0 0 12 2z" fill="currentColor"/></svg>
           github.com/mistyz0792</a></li>
@@ -229,8 +274,21 @@
     <span class="en">Click any document or image to read it right here — no download needed.</span>
   </p>
 
+  <div class="filters" id="filters" role="group" aria-label="Filter projects">
+    <button class="chip active" type="button" data-filter="all"><span class="th">ทั้งหมด</span><span class="en">All</span><b>8</b></button>
+    <button class="chip" type="button" data-filter="embedded">Embedded<b>4</b></button>
+    <button class="chip" type="button" data-filter="plc">PLC / HMI<b>1</b></button>
+    <button class="chip" type="button" data-filter="iot">IoT<b>4</b></button>
+    <button class="chip" type="button" data-filter="robotics">Robotics<b>2</b></button>
+    <button class="chip" type="button" data-filter="cad">CAD<b>3</b></button>
+    <button class="chip" type="button" data-filter="vision">Vision<b>1</b></button>
+    <p class="filter-empty" id="filter-empty" hidden>
+      <span class="th">ไม่มีผลงานในหมวดนี้</span><span class="en">Nothing in this category</span>
+    </p>
+  </div>
+
   <!-- 01 -->
-  <article class="card">
+  <article class="card" data-filters="embedded robotics cad" data-name="SCARA Robot Control System">
     <button class="shot" type="button"
             data-view="projects/01-scara-robot-control/images/control-gui-01.png" data-type="img"
             data-title-th="หน้าจอโปรแกรมควบคุม SCARA" data-title-en="SCARA control GUI">
@@ -267,7 +325,7 @@
   </article>
 
   <!-- 02 -->
-  <article class="card">
+  <article class="card" data-filters="embedded robotics" data-name="Mobile Robot K-LD7 Radar">
     <div class="shot radar" aria-hidden="true">
       <svg viewBox="0 0 200 200" role="img">
         <defs>
@@ -308,7 +366,7 @@
   </article>
 
   <!-- 03 -->
-  <article class="card">
+  <article class="card" data-filters="plc embedded iot" data-name="Midori Wolffia Duckweed Farm">
     <button class="shot" type="button"
             data-view="projects/03-wolffia-farming-automation/images/app-inventor-screens.png" data-type="img"
             data-title-th="หน้าจอแอป Midori Wolffia" data-title-en="Midori Wolffia app screens">
@@ -344,7 +402,7 @@
   </article>
 
   <!-- 04 -->
-  <article class="card">
+  <article class="card" data-filters="embedded iot" data-name="Automatic Plant Watering Blynk">
     <button class="shot" type="button"
             data-view="projects/04-plant-watering-blynk/images/blynk-dashboard.png" data-type="img"
             data-title-th="แดชบอร์ด Blynk" data-title-en="Blynk dashboard">
@@ -374,7 +432,7 @@
   </article>
 
   <!-- 05 -->
-  <article class="card">
+  <article class="card" data-filters="iot cad" data-name="Prior Solution R&amp;D IoT Agriculture">
     <button class="shot" type="button"
             data-view="projects/05-internship-prior-solution/images/greenhouse-render-02.png" data-type="img"
             data-title-th="แบบ 3D โรงเรือนไฮโดรโปนิกส์" data-title-en="Greenhouse 3D design">
@@ -407,10 +465,10 @@
     </div>
   </article>
 
-  <h3 class="subhead"><span class="th">ผลงานย่อย</span><span class="en">Smaller work</span></h3>
+  <h3 class="subhead" id="subhead-smaller"><span class="th">ผลงานย่อย</span><span class="en">Smaller work</span></h3>
   <div class="grid">
 
-    <article class="mini">
+    <article class="mini" data-filters="cad" data-name="Reverse Engineering Assembly Onshape">
       <button class="shot" type="button" data-view="projects/06-cad-reverse-engineering/images/onshape-models.png" data-type="img" data-title-th="ชิ้นงาน CAD ใน Onshape" data-title-en="Onshape models">
         <img src="projects/06-cad-reverse-engineering/images/onshape-models.png" alt="Onshape models" loading="lazy">
       </button>
@@ -434,7 +492,7 @@
       </div>
     </article>
 
-    <article class="mini">
+    <article class="mini" data-filters="iot" data-name="DHT Monitor 3 Platforms">
       <button class="shot" type="button" data-view="projects/07-dht-monitor-3-platforms/images/dashboards-overview.png" data-type="img" data-title-th="แดชบอร์ด 3 แพลตฟอร์ม" data-title-en="Three IoT dashboards">
         <img src="projects/07-dht-monitor-3-platforms/images/dashboards-overview.png" alt="IoT dashboards" loading="lazy">
       </button>
@@ -454,7 +512,7 @@
       </div>
     </article>
 
-    <article class="mini">
+    <article class="mini" data-filters="vision" data-name="Object Detection Roboflow">
       <button class="shot" type="button" data-view="projects/08-object-detection-roboflow/images/roboflow-dataset.png" data-type="img" data-title-th="Dataset บน Roboflow" data-title-en="Roboflow dataset">
         <img src="projects/08-object-detection-roboflow/images/roboflow-dataset.png" alt="Roboflow dataset" loading="lazy">
       </button>
@@ -528,10 +586,10 @@
       <ul class="contact-chips big">
         <li><a href="tel:+66929574621">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
-          +66 92-957-4621</a></li>
+          +66 92-957-4621</a><button class="copy" type="button" data-copy="+66929574621" data-label-th="คัดลอกเบอร์แล้ว" data-label-en="Phone number copied" aria-label="Copy phone number"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11z" fill="currentColor"/></svg></button></li>
         <li><a href="mailto:k.theecharat@gmail.com">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z" fill="currentColor"/></svg>
-          k.theecharat@gmail.com</a></li>
+          k.theecharat@gmail.com</a><button class="copy" type="button" data-copy="k.theecharat@gmail.com" data-label-th="คัดลอกอีเมลแล้ว" data-label-en="Email copied" aria-label="Copy email address"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11z" fill="currentColor"/></svg></button></li>
         <li><a href="https://github.com/mistyz0792">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.08.68-.22.68-.48v-1.7C6.73 19.9 6.14 18 6.14 18a2.7 2.7 0 0 0-1.13-1.49c-.92-.63.07-.62.07-.62a2.14 2.14 0 0 1 1.56 1.05 2.17 2.17 0 0 0 2.96.85 2.18 2.18 0 0 1 .65-1.37c-2.22-.25-4.55-1.11-4.55-4.94a3.87 3.87 0 0 1 1.03-2.69 3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.03a9.4 9.4 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03a3.6 3.6 0 0 1 .1 2.64 3.87 3.87 0 0 1 1.03 2.69c0 3.84-2.34 4.69-4.57 4.93a2.43 2.43 0 0 1 .69 1.88v2.79c0 .27.18.58.69.48A10 10 0 0 0 12 2z" fill="currentColor"/></svg>
           github.com/mistyz0792</a></li>
@@ -567,6 +625,11 @@
   <div class="viewer-backdrop" data-close></div>
   <div class="viewer-panel" role="dialog" aria-modal="true" aria-labelledby="viewer-title">
     <header class="viewer-bar">
+      <div class="viewer-nav" id="viewer-nav">
+        <button class="btn tiny" type="button" id="viewer-prev" aria-label="Previous">‹</button>
+        <span class="counter" id="viewer-counter">1 / 1</span>
+        <button class="btn tiny" type="button" id="viewer-next" aria-label="Next">›</button>
+      </div>
       <h4 id="viewer-title"></h4>
       <div class="viewer-tools">
         <a id="viewer-open" class="btn tiny" href="#" target="_blank" rel="noopener"><span class="th">แท็บใหม่</span><span class="en">New tab</span></a>

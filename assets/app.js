@@ -142,7 +142,9 @@
 
   function openViewer(item) {
     current = item;
-    lastFocus = document.activeElement;
+    // Only remember the page element we came from, not the arrows we just used
+    // to page within an already-open viewer.
+    if (viewer.hidden) lastFocus = document.activeElement;
 
     vBody.innerHTML = "";
     vBody.className = "viewer-body";
@@ -183,24 +185,56 @@
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
 
+  // ------------------------------------------------- viewer gallery paging
+  var vNav = document.getElementById("viewer-nav");
+  var vPrev = document.getElementById("viewer-prev");
+  var vNext = document.getElementById("viewer-next");
+  var vCounter = document.getElementById("viewer-counter");
+  var group = [];
+  var index = 0;
+
+  function itemFrom(el) {
+    return {
+      src: el.getAttribute("data-view"),
+      type: el.getAttribute("data-type") || "pdf",
+      preview: el.getAttribute("data-preview"),
+      titleTh: el.getAttribute("data-title-th"),
+      titleEn: el.getAttribute("data-title-en")
+    };
+  }
+
+  function show(i) {
+    index = (i + group.length) % group.length;
+    openViewer(itemFrom(group[index]));
+    vNav.classList.toggle("solo", group.length < 2);
+    vCounter.textContent = (index + 1) + " / " + group.length;
+    vPrev.disabled = vNext.disabled = group.length < 2;
+  }
+
+  vPrev.addEventListener("click", function () { show(index - 1); });
+  vNext.addEventListener("click", function () { show(index + 1); });
+
   document.addEventListener("click", function (e) {
     var trigger = e.target.closest("[data-view]");
     if (trigger) {
       e.preventDefault();
-      openViewer({
-        src: trigger.getAttribute("data-view"),
-        type: trigger.getAttribute("data-type") || "pdf",
-        preview: trigger.getAttribute("data-preview"),
-        titleTh: trigger.getAttribute("data-title-th"),
-        titleEn: trigger.getAttribute("data-title-en")
-      });
+      // Everything viewable inside the same project card becomes one gallery,
+      // so the arrows page through that project's documents rather than dead-end.
+      var scope = trigger.closest(".card, .mini");
+      group = scope
+        ? Array.prototype.slice.call(scope.querySelectorAll("[data-view]"))
+        : [trigger];
+      show(group.indexOf(trigger));
       return;
     }
     if (e.target.closest("[data-close]")) closeViewer();
   });
 
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && !viewer.hidden) closeViewer();
+    if (viewer.hidden) return;
+    if (e.key === "Escape") closeViewer();
+    if (e.key === "ArrowLeft" && group.length > 1) show(index - 1);
+    if (e.key === "ArrowRight" && group.length > 1) show(index + 1);
   });
 
   /* ====================================================================
@@ -221,7 +255,10 @@
     var start = performance.now();
 
     function frame(now) {
-      var t = Math.min((now - start) / duration, 1);
+      // rAF hands back the frame's start time, which can predate the
+      // performance.now() captured just above — clamp or t goes negative and
+      // the counter briefly renders "-14".
+      var t = Math.min(Math.max((now - start) / duration, 0), 1);
       var eased = 1 - Math.pow(1 - t, 3);
       var value = target * eased;
       el.textContent = plain
@@ -246,7 +283,343 @@
     Array.prototype.forEach.call(counters, function (el) { countIo.observe(el); });
   }
 
+  /* ====================================================================
+     Interaction features. These are usability, not decoration, so they run
+     even when the visitor has asked for reduced motion.
+     ==================================================================== */
+
+  var isTh = function () { return root.getAttribute("data-lang") === "th"; };
+
+  // Headings carry both languages as sibling spans and CSS hides one of them,
+  // so textContent would return "เกี่ยวกับผมAbout me". Strip the inactive one.
+  function langText(node) {
+    if (!node) return "";
+    var clone = node.cloneNode(true);
+    clone.querySelectorAll(isTh() ? ".en" : ".th").forEach(function (n) { n.remove(); });
+    var num = clone.querySelector(".num");
+    if (num) num.remove();
+    return clone.textContent.replace(/\s+/g, " ").trim();
+  }
+
+  // ------------------------------------------------------------- toasts
+  var toasts = document.getElementById("toasts");
+
+  function toast(message) {
+    var el = document.createElement("div");
+    el.className = "toast";
+    el.innerHTML = '<span class="ok">✓</span>';
+    el.appendChild(document.createTextNode(message));
+    toasts.appendChild(el);
+    setTimeout(function () {
+      el.classList.add("out");
+      setTimeout(function () { el.remove(); }, 260);
+    }, 2200);
+  }
+
+  // ------------------------------------------------ copy to clipboard
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest(".copy");
+    if (!btn) return;
+    e.preventDefault();
+    var text = btn.getAttribute("data-copy");
+    var label = isTh() ? btn.getAttribute("data-label-th") : btn.getAttribute("data-label-en");
+
+    function done() { toast(label + " — " + text); }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+
+    // execCommand is deprecated but is the only path on insecure origins.
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); done(); } catch (err) {}
+      ta.remove();
+    }
+  });
+
+  // ------------------------------------------------------- section rail
+  var rail = document.getElementById("rail");
+  sections.forEach(function (s) {
+    var link = document.createElement("a");
+    link.href = "#" + s.id;
+
+    // Copy the heading's own .th/.en spans across so the existing CSS keeps the
+    // rail label in sync when the visitor switches language.
+    var span = document.createElement("span");
+    var heading = s.querySelector("h2");
+    if (heading) {
+      heading.querySelectorAll(".th, .en").forEach(function (n) {
+        span.appendChild(n.cloneNode(true));
+      });
+    }
+    if (!span.childNodes.length) span.textContent = s.id;
+
+    link.appendChild(span);
+    link.setAttribute("aria-label", langText(heading) || s.id);
+    rail.appendChild(link);
+  });
+  var railLinks = Array.prototype.slice.call(rail.children);
+
+  // ------------------------------------------------------ back to top
+  var fab = document.getElementById("fab");
+  fab.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+  });
+
+  window.addEventListener("scroll", function () {
+    fab.classList.toggle("on", window.scrollY > 700);
+    var active = null;
+    sections.forEach(function (s) {
+      if (s.offsetTop <= window.scrollY + 160) active = s;
+    });
+    railLinks.forEach(function (a) {
+      a.classList.toggle("on", !!active && a.getAttribute("href") === "#" + active.id);
+    });
+  }, { passive: true });
+
+  // ---------------------------------------------------- project filters
+  var filterBar = document.getElementById("filters");
+  var projectCards = Array.prototype.slice.call(
+    document.querySelectorAll("#projects .card, #projects .mini")
+  );
+  var subhead = document.getElementById("subhead-smaller");
+  var filterEmpty = document.getElementById("filter-empty");
+
+  filterBar.addEventListener("click", function (e) {
+    var chip = e.target.closest(".chip");
+    if (!chip) return;
+    var want = chip.getAttribute("data-filter");
+
+    filterBar.querySelectorAll(".chip").forEach(function (c) {
+      c.classList.toggle("active", c === chip);
+    });
+
+    var shown = 0;
+    var miniShown = 0;
+    projectCards.forEach(function (card) {
+      var tags = (card.getAttribute("data-filters") || "").split(" ");
+      var match = want === "all" || tags.indexOf(want) !== -1;
+      card.classList.toggle("hide", !match);
+      if (match) {
+        shown++;
+        if (card.classList.contains("mini")) miniShown++;
+        card.classList.remove("fade-in");
+        void card.offsetWidth;             // restart the entrance animation
+        card.classList.add("fade-in");
+      }
+    });
+
+    subhead.hidden = miniShown === 0;
+    filterEmpty.hidden = shown !== 0;
+  });
+
+  // ------------------------------------------------- command palette
+  var palette = document.getElementById("palette");
+  var paletteQ = document.getElementById("palette-q");
+  var paletteResults = document.getElementById("palette-results");
+  var isMac = /mac|iphone|ipad/i.test(navigator.platform || navigator.userAgent);
+  document.getElementById("cmdk-hint").textContent = isMac ? "⌘ K" : "Ctrl K";
+
+  // Built from the DOM so it can never drift out of sync with the page.
+  function buildCommands() {
+    var list = [];
+
+    sections.forEach(function (s) {
+      var h = s.querySelector("h2");
+      var num = h && h.querySelector(".num");
+      list.push({
+        group: isTh() ? "ไปยังส่วน" : "Jump to",
+        icon: num ? num.textContent.trim() : "#",
+        title: langText(h) || s.id,
+        sub: "#" + s.id,
+        run: function () {
+          document.getElementById(s.id).scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
+        }
+      });
+    });
+
+    projectCards.forEach(function (card) {
+      var pill = card.querySelector(".pill");
+      list.push({
+        group: isTh() ? "ผลงาน" : "Projects",
+        icon: pill ? pill.textContent.trim() : "•",
+        title: card.getAttribute("data-name") || langText(card.querySelector("h3")),
+        sub: langText(card.querySelector("h3")),
+        run: function () {
+          card.classList.remove("hide");
+          card.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
+        }
+      });
+    });
+
+    document.querySelectorAll("[data-view]").forEach(function (el) {
+      if (el.classList.contains("shot")) return;   // thumbnails duplicate their card
+      var scope = el.closest(".card, .mini");
+      list.push({
+        group: isTh() ? "เอกสาร" : "Documents",
+        icon: el.getAttribute("data-type") === "img" ? "IMG" : "PDF",
+        title: (isTh() ? el.getAttribute("data-title-th") : el.getAttribute("data-title-en")) || el.getAttribute("data-view"),
+        sub: scope ? (scope.getAttribute("data-name") || "") : "Résumé",
+        run: function () { el.click(); }
+      });
+    });
+
+    return list;
+  }
+
+  var commands = [];
+  var results = [];
+  var selected = 0;
+
+  function score(item, q) {
+    if (!q) return 1;
+    var hay = (item.title + " " + item.sub + " " + item.group).toLowerCase();
+    if (hay.indexOf(q) !== -1) return 3;
+    // Subsequence match, so "scr" still finds "SCARA Robot".
+    var i = 0;
+    for (var c = 0; c < hay.length && i < q.length; c++) {
+      if (hay[c] === q[i]) i++;
+    }
+    return i === q.length ? 1 : 0;
+  }
+
+  function renderPalette() {
+    var q = paletteQ.value.trim().toLowerCase();
+    results = commands
+      .map(function (item) { return { item: item, s: score(item, q) }; })
+      .filter(function (r) { return r.s > 0; })
+      .sort(function (a, b) { return b.s - a.s; })
+      .map(function (r) { return r.item; });
+
+    paletteResults.innerHTML = "";
+    if (!results.length) {
+      var none = document.createElement("p");
+      none.className = "palette-empty";
+      none.textContent = isTh() ? "ไม่พบสิ่งที่ค้นหา" : "No matches";
+      paletteResults.appendChild(none);
+      return;
+    }
+
+    selected = Math.min(selected, results.length - 1);
+    var lastGroup = null;
+    results.forEach(function (item, i) {
+      if (item.group !== lastGroup) {
+        var g = document.createElement("div");
+        g.className = "palette-group";
+        g.textContent = item.group;
+        paletteResults.appendChild(g);
+        lastGroup = item.group;
+      }
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "palette-item" + (i === selected ? " sel" : "");
+      btn.innerHTML =
+        '<span class="ico"></span><span class="txt"><b></b><small></small></span>';
+      btn.querySelector(".ico").textContent = item.icon;
+      btn.querySelector("b").textContent = item.title;
+      btn.querySelector("small").textContent = item.sub;
+      btn.addEventListener("click", function () { closePalette(); item.run(); });
+      btn.addEventListener("pointerenter", function () {
+        selected = i;
+        paletteResults.querySelectorAll(".palette-item").forEach(function (n, k) {
+          n.classList.toggle("sel", k === i);
+        });
+      });
+      paletteResults.appendChild(btn);
+    });
+  }
+
+  function openPalette() {
+    commands = buildCommands();
+    paletteQ.value = "";
+    paletteQ.placeholder = isTh()
+      ? "ค้นหาผลงาน เอกสาร หรือหัวข้อ…"
+      : "Search projects, documents or sections…";
+    selected = 0;
+    renderPalette();
+    palette.hidden = false;
+    body.classList.add("locked");
+    paletteQ.focus();
+  }
+
+  function closePalette() {
+    palette.hidden = true;
+    if (viewer.hidden) body.classList.remove("locked");
+  }
+
+  document.getElementById("cmdk-open").addEventListener("click", openPalette);
+  palette.addEventListener("click", function (e) {
+    if (e.target.closest("[data-palette-close]")) closePalette();
+  });
+  paletteQ.addEventListener("input", function () { selected = 0; renderPalette(); });
+
+  document.addEventListener("keydown", function (e) {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+      e.preventDefault();
+      palette.hidden ? openPalette() : closePalette();
+      return;
+    }
+    if (palette.hidden) return;
+
+    if (e.key === "Escape") { e.preventDefault(); closePalette(); }
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+      e.preventDefault();
+      if (!results.length) return;
+      selected = (selected + (e.key === "ArrowDown" ? 1 : -1) + results.length) % results.length;
+      renderPalette();
+      var sel = paletteResults.querySelector(".sel");
+      if (sel) sel.scrollIntoView({ block: "nearest" });
+    }
+    if (e.key === "Enter" && results[selected]) {
+      e.preventDefault();
+      var run = results[selected].run;
+      closePalette();
+      run();
+    }
+  });
+
+  // ------------------------------------------------------- boot screen
+  var boot = document.getElementById("boot");
+  var bootBar = document.getElementById("boot-bar");
+  var bootStatus = document.getElementById("boot-status");
+  var steps = ["INITIALISING", "LOADING PROJECTS", "RENDERING", "READY"];
+  var pct = 0;
+  var bootTimer = setInterval(function () {
+    pct = Math.min(pct + 8 + Math.random() * 14, 100);
+    bootBar.style.width = pct + "%";
+    bootStatus.textContent = steps[Math.min(Math.floor(pct / 26), steps.length - 1)];
+    if (pct >= 100) {
+      clearInterval(bootTimer);
+      setTimeout(function () { boot.classList.add("done"); }, 220);
+    }
+  }, 110);
+  // Never let a stalled timer trap the visitor behind the boot screen.
+  setTimeout(function () { clearInterval(bootTimer); boot.classList.add("done"); }, 3500);
+
   if (reduced) return;
+
+  // ------------------------------------------------ contextual cursor label
+  var cursorLabel = document.getElementById("cursor-label");
+  document.querySelectorAll("[data-view]").forEach(function (el) {
+    el.addEventListener("pointerenter", function () {
+      cursorLabel.textContent = el.getAttribute("data-type") === "img"
+        ? (isTh() ? "ดูรูป" : "VIEW")
+        : (isTh() ? "เปิดอ่าน" : "READ");
+      cursorLabel.classList.add("on");
+    });
+    el.addEventListener("pointerleave", function () { cursorLabel.classList.remove("on"); });
+  });
+  window.addEventListener("pointermove", function (e) {
+    cursorLabel.style.transform = "translate(" + (e.clientX + 34) + "px," + (e.clientY - 26) + "px) translate(-50%,-50%)";
+  }, { passive: true });
 
   // --------------------------------------------- cursor glow + card lights
   var glow = document.getElementById("cursor-glow");
