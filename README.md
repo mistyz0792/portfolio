@@ -46,6 +46,13 @@ source code, documentation and design files.
 | 7 | **[DHT Monitor on 3 Platforms](projects/07-dht-monitor-3-platforms/)** | ส่งค่าอุณหภูมิ/ความชื้นจากเซนเซอร์ DHT ขึ้น ThingsBoard, ThingSpeak และ Google Sheets พร้อมแจ้งเตือนผ่าน Telegram |
 | 8 | **[Object Detection with Roboflow](projects/08-object-detection-roboflow/)** | ทำ dataset ตรวจจับวัตถุ ติด bounding box แยกคลาสตามสี แล้วเทรนโมเดลบน Roboflow |
 
+## ใบรับรอง / Certificates
+
+| ใบรับรอง | รายละเอียด | วันที่ |
+|---|---|---|
+| **[Hochschule Esslingen — Internship Certificate](docs/certificates/certificate-hochschule-esslingen-internship.pdf)** | ผ่านการฝึกงานที่ Automation, Robotics and Drive Systems Laboratory คณะ Mechanical and Systems Engineering | 1 APR – 31 MAY 2026 |
+| **[Speexx CEFR — English B1.1](docs/certificates/certificate-cefr-english-b1-1.pdf)** | ผลสอบวัดระดับภาษาอังกฤษตามกรอบ CEFR ระดับ B1.1 (Intermediate) จัดสอบโดย มจพ. ร่วมกับ Speexx Thailand | 16 DEC 2024 |
+
 ## ทักษะ / Skills
 
 | หมวด | รายการ |
@@ -56,7 +63,7 @@ source code, documentation and design files.
 | **Programming** | C · C++ · Python · HTML · CSS |
 | **CAD & Design** | Onshape · AutoCAD · 3D printing |
 | **Control & Robotics** | Inverse kinematics · G-code · stepper & AC servo drives (TB6600, Yaskawa SGDA) · homing with photoelectric sensors |
-| **ภาษา / Languages** | ไทย (ดีมาก) · English (Intermediate) |
+| **ภาษา / Languages** | ไทย (ดีมาก) · English — B1.1 (CEFR) |
 
 ## โครงสร้าง repo / Repository layout
 

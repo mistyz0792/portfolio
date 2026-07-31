@@ -340,6 +340,29 @@ section > h2 .num {
   border-radius: 6px; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: .86rem;
 }
 
+/* --- certificates ------------------------------------------------------- */
+.certs { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.2rem; }
+.cert {
+  display: flex; gap: 1rem; align-items: flex-start; text-align: left;
+  padding: 1rem; border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--bg-elev); box-shadow: var(--shadow-sm);
+  font: inherit; color: var(--fg-dim); cursor: pointer;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.cert:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+.cert > img {
+  width: 78px; flex: none; border-radius: 7px; display: block;
+  border: 1px solid var(--line-soft); background: #fff;
+  object-fit: cover; object-position: top center; aspect-ratio: 72 / 100;
+}
+.cert-body { display: grid; gap: .3rem; min-width: 0; }
+.cert-body b { color: var(--fg); font-size: .96rem; line-height: 1.3; }
+.cert-body small { font-size: .82rem; line-height: 1.45; color: var(--fg-dim); }
+.cert-body em {
+  font: 700 .72rem/1 ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-style: normal; letter-spacing: .05em; color: var(--accent);
+}
+
 /* --- project cards ------------------------------------------------------ */
 .card {
   display: grid; grid-template-columns: 320px 1fr;

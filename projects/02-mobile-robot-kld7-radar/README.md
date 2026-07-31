@@ -4,8 +4,10 @@
 
 > Project Report · Scholarship Program for Undergraduate International Internship
 > **Hochschule Esslingen – University of Applied Sciences**, Germany
+> Automation, Robotics and Drive Systems Laboratory · Faculty of Mechanical and Systems Engineering
 > ร่วมกับ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ (KMUTNB)
-> **ช่วงที่ทำ / Period — APR 2026 – MAY 2026**
+> **ช่วงที่ทำ / Period — 1 APR 2026 – 31 MAY 2026**
+> 📄 [ใบรับรองการฝึกงาน / Internship certificate](../../docs/certificates/certificate-hochschule-esslingen-internship.pdf)
 
 **ผู้จัดทำ / Authors** — Theecharat Klainin · Chawakorn Kittirotcharoen
 **อาจารย์ที่ปรึกษา / Advisors** — Prof. Dr.-Ing. Ralph Schmidt · Prof. Dr.-Ing. Jürgen Haag
