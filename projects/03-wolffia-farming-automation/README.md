@@ -2,7 +2,9 @@
 
 ### เครื่องเพาะเลี้ยงไข่ผำโดยระบบ Automation ควบคุมผ่านแอปพลิเคชัน
 
-> *Miniature Superfood of the Future*
+> *Miniature Superfood of the Future* · **DEC 2024 – FEB 2025**
+
+**Stack** — PLC · ESP32 · Modbus TCP · HMI · Thunkable · Google Sheets
 
 ---
 
@@ -14,6 +16,24 @@
 
 **EN** — Wolffia (duckweed) is a high-protein aquatic superfood. This project brings food-safety-grade
 consistency to growing it, and automates the harvest — the hardest, most labour-intensive step.
+
+## สถาปัตยกรรมระบบ / System architecture
+
+```
+    แอป Thunkable (Android)          Google Sheets (cloud DB)
+              │                              ▲
+              │  อ่าน/เขียนสถานะ              │  บันทึกค่าเซนเซอร์
+              ▼                              │
+    ┌──────────────────┐   Modbus TCP   ┌──────────┐
+    │      ESP32       │◄──────────────►│   PLC    │──► HMI
+    └──────────────────┘                └──────────┘
+              │                              │
+              ▼                              ▼
+    เซนเซอร์อุณหภูมิ–ความชื้น          รีเลย์ · ปั๊มน้ำ · วาล์ว · ไฟเพาะเลี้ยง
+```
+
+ฝั่งควบคุมเป็น **PLC** ทำงานร่วมกับ **ESP32** ผ่าน **Modbus TCP** มี **HMI** สำหรับหน้างาน
+และใช้ **Google Sheets** เป็นฐานข้อมูลคลาวด์แลกเปลี่ยนข้อมูลกับแอปมือถือแบบเรียลไทม์
 
 ## ขอบเขตงาน / Scope
 
@@ -48,7 +68,7 @@ consistency to growing it, and automates the harvest — the hardest, most labou
 
 ## แอปพลิเคชัน / Mobile application
 
-แอป Android สร้างด้วยเครื่องมือแบบ block-based (MIT App Inventor family) แบ่งเป็น 5 หน้าจอ
+แอป Android สร้างด้วย **Thunkable** (เครื่องมือแบบ block-based) แบ่งเป็น 5 หน้าจอ
 
 | หน้าจอ / Screen | ทำอะไร |
 |---|---|
@@ -68,6 +88,7 @@ consistency to growing it, and automates the harvest — the hardest, most labou
 | โครงสร้าง | ถังเพาะเลี้ยง · รางน้ำ · ถังน้ำวน · ท่อ PVC + ข้อต่อ · สายยาง |
 | ระบบน้ำ | ปั๊มน้ำ · วาล์วน้ำ · สวิตช์ลูกลอย · ผ้าขาวบาง |
 | ระบบไฟ/ควบคุม | ไฟเพาะเลี้ยง · รางไฟ · รีเลย์ · เซนเซอร์วัดอุณหภูมิ–ความชื้น |
+| ตัวควบคุม | PLC (+ HMI) · ESP32 · เครือข่าย Modbus TCP |
 
 ## โครงสร้างไฟล์ / What's in here
 

@@ -3,8 +3,9 @@
 ### หุ่นยนต์เคลื่อนที่ควบคุมผ่าน Bluetooth พร้อมระบบติดตามด้วยเรดาร์ K-LD7
 
 > Project Report · Scholarship Program for Undergraduate International Internship
-> **Hochschule Esslingen – University of Applied Sciences**, Germany · Academic Year 2025
+> **Hochschule Esslingen – University of Applied Sciences**, Germany
 > ร่วมกับ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ (KMUTNB)
+> **ช่วงที่ทำ / Period — APR 2026 – MAY 2026**
 
 **ผู้จัดทำ / Authors** — Theecharat Klainin · Chawakorn Kittirotcharoen
 **อาจารย์ที่ปรึกษา / Advisors** — Prof. Dr.-Ing. Ralph Schmidt · Prof. Dr.-Ing. Jürgen Haag

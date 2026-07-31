@@ -4,271 +4,551 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Theecharat Klainin — Engineering Portfolio</title>
-<meta name="description" content="Control systems, robotics and IoT portfolio — SCARA robot control, radar-guided mobile robot, farm automation and industrial R&D.">
+<meta name="description" content="Instrumentation &amp; Control engineer — SCARA robot control, K-LD7 radar-guided mobile robot, PLC farm automation and industrial IoT R&amp;D.">
+<meta property="og:title" content="Theecharat Klainin — Engineering Portfolio">
+<meta property="og:description" content="Instrumentation &amp; Control engineer. SCARA robot control, radar-guided mobile robot, PLC farm automation, industrial IoT R&amp;D.">
+<meta property="og:image" content="https://mistyz0792.github.io/portfolio/assets/photo.jpg">
 <link rel="stylesheet" href="assets/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
 </head>
 <body>
 
-<div class="controls">
-  <button id="lang-toggle" type="button" aria-label="Switch language">EN</button>
-  <button id="theme-toggle" type="button" aria-label="Switch theme">◐</button>
-</div>
+<a class="skip" href="#about"><span class="th">ข้ามไปเนื้อหา</span><span class="en">Skip to content</span></a>
 
-<header class="hero">
-  <div class="wrap">
-    <p class="eyebrow">Electronics Engineering Technology · Instrumentation &amp; Control</p>
-    <h1>Theecharat Klainin</h1>
-    <p class="thai-name">ธีร์ชรัสมิ์ คล้ายนิล</p>
-    <p class="affil">King Mongkut's University of Technology North Bangkok (KMUTNB)<br>College of Industrial Technology</p>
-
-    <p class="lede">
-      <span class="th">รวมผลงานด้านระบบควบคุม หุ่นยนต์ และ IoT — ตั้งแต่ปริญญานิพนธ์ควบคุมหุ่นยนต์ SCARA,
-      โปรเจกต์หุ่นยนต์กับเรดาร์ที่ประเทศเยอรมนี, ระบบฟาร์มอัตโนมัติ ไปจนถึงงานฝึกงาน R&amp;D ด้าน IoT การเกษตร</span>
-      <span class="en">Control systems, robotics and IoT — a SCARA robot control system, a radar-guided mobile robot
-      built on exchange in Germany, automated farming systems, and industrial R&amp;D for agriculture.</span>
-    </p>
-
-    <div class="links">
-      <a class="btn primary" href="https://github.com/mistyz0792/portfolio">GitHub Repository</a>
-      <a class="btn" href="mailto:k.theecharat@gmail.com">k.theecharat@gmail.com</a>
+<nav id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <img src="assets/photo.jpg" alt="">
+      <span>Theecharat&nbsp;Klainin</span>
+    </a>
+    <div class="nav-links">
+      <a href="#about"><span class="th">เกี่ยวกับ</span><span class="en">About</span></a>
+      <a href="#experience"><span class="th">ประสบการณ์</span><span class="en">Experience</span></a>
+      <a href="#projects"><span class="th">ผลงาน</span><span class="en">Projects</span></a>
+      <a href="#skills"><span class="th">ทักษะ</span><span class="en">Skills</span></a>
+      <a href="#contact"><span class="th">ติดต่อ</span><span class="en">Contact</span></a>
     </div>
+    <div class="nav-actions">
+      <button id="lang-toggle" type="button" aria-label="Switch language">EN</button>
+      <button id="theme-toggle" type="button" aria-label="Switch theme">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================ HERO ============================ -->
+<header id="top" class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="portrait">
+      <img src="assets/photo.jpg" alt="Theecharat Klainin">
+    </div>
+
+    <div class="hero-text">
+      <p class="eyebrow">Instrumentation &amp; Control · Automation · Robotics</p>
+      <h1>Theecharat Klainin</h1>
+      <p class="thai-name">ธีร์ชรัสมิ์ คล้ายนิล</p>
+      <p class="lede">
+        <span class="th">วิศวกรรมอิเล็กทรอนิกส์ (เครื่องมือวัดและควบคุม) จาก มจพ. —
+        ทำงานกับ PLC, ระบบสมองกลฝังตัว, การสื่อสารในงานอุตสาหกรรม และระบบอัตโนมัติ
+        ผ่านโปรเจกต์ทั้งในมหาวิทยาลัยและในโรงงานจริง</span>
+        <span class="en">Electronic Engineering Technology graduate specialising in Instrumentation and Control from
+        KMUTNB — PLCs, embedded systems, industrial communication and automation, through both academic and
+        industrial projects.</span>
+      </p>
+
+      <ul class="contact-chips">
+        <li><a href="tel:+66929574621">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
+          +66 92-957-4621</a></li>
+        <li><a href="mailto:k.theecharat@gmail.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z" fill="currentColor"/></svg>
+          k.theecharat@gmail.com</a></li>
+        <li><a href="https://github.com/mistyz0792">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.08.68-.22.68-.48v-1.7C6.73 19.9 6.14 18 6.14 18a2.7 2.7 0 0 0-1.13-1.49c-.92-.63.07-.62.07-.62a2.14 2.14 0 0 1 1.56 1.05 2.17 2.17 0 0 0 2.96.85 2.18 2.18 0 0 1 .65-1.37c-2.22-.25-4.55-1.11-4.55-4.94a3.87 3.87 0 0 1 1.03-2.69 3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.03a9.4 9.4 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03a3.6 3.6 0 0 1 .1 2.64 3.87 3.87 0 0 1 1.03 2.69c0 3.84-2.34 4.69-4.57 4.93a2.43 2.43 0 0 1 .69 1.88v2.79c0 .27.18.58.69.48A10 10 0 0 0 12 2z" fill="currentColor"/></svg>
+          github.com/mistyz0792</a></li>
+      </ul>
+
+      <div class="hero-cta">
+        <button class="btn primary" type="button"
+                data-view="docs/resume-theecharat-klainin.pdf"
+                data-type="pdf"
+                data-preview="assets/previews/resume-theecharat-klainin.png"
+                data-title-th="เรซูเม่ — Theecharat Klainin"
+                data-title-en="Résumé — Theecharat Klainin">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5s9.3-3.1 11-7.5c-1.7-4.4-6-7.5-11-7.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" fill="currentColor"/></svg>
+          <span class="th">ดูเรซูเม่</span><span class="en">View résumé</span>
+        </button>
+        <a class="btn" href="#projects"><span class="th">ดูผลงานทั้งหมด</span><span class="en">Browse projects</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <ul class="stats">
+      <li><b>3.45</b><span class="th">เกรดเฉลี่ย · เกียรตินิยมอันดับ 2</span><span class="en">GPA · Second-Class Honors</span></li>
+      <li><b>8</b><span class="th">ผลงานในพอร์ต</span><span class="en">projects documented</span></li>
+      <li><b>4</b><span class="th">ประสบการณ์งานจริง</span><span class="en">hands-on placements</span></li>
+      <li><b>2026</b><span class="th">จบการศึกษา · มจพ.</span><span class="en">graduated · KMUTNB</span></li>
+    </ul>
   </div>
 </header>
 
-<main class="wrap">
+<main>
 
-  <section>
-    <h2><span class="th">ผลงานหลัก</span><span class="en">Featured projects</span></h2>
+<!-- ============================ ABOUT ============================ -->
+<section id="about" class="wrap reveal">
+  <h2><span class="num">01</span><span class="th">เกี่ยวกับผม</span><span class="en">About me</span></h2>
+  <div class="about">
+    <p class="big">
+      <span class="th">ผมสนใจงานที่ต้อง “ทำให้ของจริงขยับได้” — ตั้งแต่คำนวณจลนศาสตร์ผกผัน
+      ไปจนถึงหาสาเหตุว่าทำไมมอเตอร์ถึงเดินเบี้ยว</span>
+      <span class="en">I like the part of engineering where something physical actually has to move —
+      from solving inverse kinematics down to working out why a motor drifts to one side.</span>
+    </p>
+    <p>
+      <span class="th">มีประสบการณ์กับ PLC, ระบบสมองกลฝังตัว, การสื่อสารในงานอุตสาหกรรม และระบบอัตโนมัติ
+      ทั้งจากปริญญานิพนธ์ การไปแลกเปลี่ยนที่เยอรมนี และการฝึกงาน R&amp;D ในบริษัท
+      ถนัด ESP32, Raspberry Pi, Modbus TCP, การพัฒนา HMI และการออกแบบระบบควบคุม
+      สนใจงานด้าน Industrial Automation, Robotics และ Smart Agriculture</span>
+      <span class="en">Experienced in PLCs, embedded systems, industrial communication and automation through a senior
+      thesis, an exchange project in Germany, and an industrial R&amp;D internship. Skilled in ESP32, Raspberry Pi,
+      Modbus TCP, HMI development and control-system design. Interested in industrial automation, robotics and
+      smart-agriculture technology.</span>
+    </p>
+  </div>
+</section>
 
-    <article class="card">
-      <a class="shot" href="projects/01-scara-robot-control/images/control-gui-01.png">
-        <img src="projects/01-scara-robot-control/images/control-gui-01.png" alt="SCARA control GUI" loading="lazy">
-      </a>
-      <div class="body">
-        <div class="num">01</div>
-        <h3>Design and Optimization of a SCARA Robot Control System</h3>
-        <p class="sub">ปรับปรุงและออกแบบระบบควบคุมหุ่นยนต์ SCARA</p>
-        <p class="meta"><span class="th">ปริญญานิพนธ์ · KMUTNB · 2568</span><span class="en">Senior thesis · KMUTNB · 2025</span></p>
-        <p>
-          <span class="th">Raspberry Pi ทำหน้าที่ Master คำนวณจลนศาสตร์ผกผันและวางแผนการเคลื่อนที่ ส่วน ESP32 ประจำแต่ละข้อต่อ
-          รับคำสั่งผ่าน I2C แล้วสร้างสัญญาณพัลส์ควบคุมมอเตอร์เอง ทดสอบ pick-and-place สำเร็จทุกครั้ง และอ่าน G-code ได้</span>
-          <span class="en">A Raspberry Pi master solves inverse kinematics and plans motion; four ESP32 joint processors take
-          I2C commands and generate their own step/direction pulses. 100 % success on pick-and-place, with G-code support.</span>
-        </p>
-        <ul class="tags"><li>Raspberry Pi</li><li>ESP32</li><li>I2C</li><li>Python / Tkinter</li><li>Arduino C++</li><li>Inverse kinematics</li><li>G-code</li></ul>
-        <div class="actions">
-          <a class="btn primary" href="https://github.com/mistyz0792/portfolio/tree/main/projects/01-scara-robot-control"><span class="th">รายละเอียด</span><span class="en">Details</span></a>
-          <a class="btn" href="projects/01-scara-robot-control/docs/thesis-full.pdf"><span class="th">เล่มฉบับเต็ม</span><span class="en">Full thesis</span></a>
-          <a class="btn" href="projects/01-scara-robot-control/docs/poster.pdf"><span class="th">โปสเตอร์</span><span class="en">Poster</span></a>
-          <a class="btn" href="https://cad.onshape.com/documents/4489548dec43b75017a02eb4/w/150e8646fc0df473b1573c5d/e/71491090db7d655e8ac9f38e">CAD</a>
-        </div>
-      </div>
-    </article>
+<!-- ========================== EXPERIENCE ========================== -->
+<section id="experience" class="wrap reveal">
+  <h2><span class="num">02</span><span class="th">ประสบการณ์</span><span class="en">Experience</span></h2>
 
-    <article class="card">
-      <div class="shot radar" aria-hidden="true">
-        <svg viewBox="0 0 200 200" role="img">
-          <circle cx="100" cy="100" r="88" class="r-ring"/><circle cx="100" cy="100" r="60" class="r-ring"/><circle cx="100" cy="100" r="32" class="r-ring"/>
-          <line x1="100" y1="12" x2="100" y2="188" class="r-ring"/><line x1="12" y1="100" x2="188" y2="100" class="r-ring"/>
-          <path d="M100 100 L100 12 A88 88 0 0 1 162 38 Z" class="r-sweep"/>
-          <circle cx="132" cy="66" r="5" class="r-dot"/>
-        </svg>
-      </div>
-      <div class="body">
-        <div class="num">02</div>
+  <ol class="timeline">
+    <li>
+      <div class="when">APR 2026 – MAY 2026</div>
+      <div class="what">
         <h3>Mobile Robot with Bluetooth + Stationary K-LD7 Radar Monitoring</h3>
-        <p class="sub">หุ่นยนต์เคลื่อนที่ควบคุมผ่าน Bluetooth พร้อมระบบติดตามด้วยเรดาร์</p>
-        <p class="meta"><span class="th">Hochschule Esslingen, เยอรมนี · 2025</span><span class="en">Hochschule Esslingen, Germany · 2025</span></p>
-        <p>
-          <span class="th">เรดาร์ Doppler ตัวเดียวที่ติดตั้งอยู่กับที่ ทำหน้าที่เป็นระบบระบุตำแหน่งให้หุ่นยนต์ที่ไม่มีทั้ง encoder และ IMU
-          ผู้ใช้คลิกจุดเป้าหมายบนแผนที่เรดาร์แล้วหุ่นยนต์ขับไปเอง โดยหาทิศทางจากรอยเดินที่เรดาร์จับได้</span>
-          <span class="en">One stationary Doppler radar acts as the positioning system for a robot with no encoders and no IMU.
-          Click a goal on the radar map and it drives there — deriving its own heading from the trail the radar sees.</span>
-        </p>
-        <ul class="tags"><li>Python</li><li>Tkinter</li><li>matplotlib</li><li>pyserial</li><li>K-LD7 radar</li><li>Bluetooth SPP</li><li>Makeblock</li></ul>
-        <div class="actions">
-          <a class="btn primary" href="https://github.com/mistyz0792/portfolio/tree/main/projects/02-mobile-robot-kld7-radar"><span class="th">รายละเอียด</span><span class="en">Details</span></a>
-          <a class="btn" href="projects/02-mobile-robot-kld7-radar/docs/project-report-esslingen.pdf"><span class="th">รายงานฉบับเต็ม</span><span class="en">Full report</span></a>
-        </div>
+        <p class="where">Exchange Program · Hochschule Esslingen, Germany</p>
+        <ul>
+          <li><span class="th">ออกแบบระบบมอนิเตอร์ด้วยเรดาร์ Doppler 24 GHz (K-LD7) ด้วย Python พร้อมกราฟเรียลไทม์ ตรวจจับโซนปลอดภัย และบันทึก CSV</span>
+              <span class="en">Designed a stationary 24 GHz Doppler radar (K-LD7) monitoring system in Python with real-time visualisation, safety-zone detection and CSV logging.</span></li>
+          <li><span class="th">พัฒนาการควบคุมหุ่นยนต์ผ่าน BLE (MIT App Inventor + เฟิร์มแวร์ Arduino) บนหุ่น Makeblock ทั้งโหมดขับเองและโหมดหลบสิ่งกีดขวาง</span>
+              <span class="en">Developed BLE-based mobile robot control (MIT App Inventor + Arduino firmware) for a Makeblock robot, with manual drive and obstacle-avoidance modes.</span></li>
+          <li><span class="th">สร้างระบบนำทางอัตโนมัติ go-to-goal โดยรวมตำแหน่งจากเรดาร์เข้ากับการจับเวลามอเตอร์ที่คาลิเบรตไว้ ขับ–แก้ทิศซ้ำจนถึงพิกัดเป้าหมาย</span>
+              <span class="en">Built an autonomous go-to-goal navigation system combining radar position feedback with calibrated motor timing for iterative drive-and-correct movement.</span></li>
+        </ul>
       </div>
-    </article>
+    </li>
 
-    <article class="card">
-      <a class="shot" href="projects/03-wolffia-farming-automation/images/app-inventor-screens.png">
-        <img src="projects/03-wolffia-farming-automation/images/app-inventor-screens.png" alt="Midori Wolffia app screens" loading="lazy">
-      </a>
-      <div class="body">
-        <div class="num">03</div>
-        <h3>Midori Wolffia — Automated Duckweed Farming</h3>
-        <p class="sub">เครื่องเพาะเลี้ยงไข่ผำโดยระบบ automation ควบคุมผ่านแอปพลิเคชัน</p>
-        <p class="meta"><span class="th">โปรเจกต์ระบบอัตโนมัติ + แอป Android</span><span class="en">Automation system + Android app</span></p>
-        <p>
-          <span class="th">เก็บเกี่ยวไข่ผำโดยไม่ใช้แขนกล — ใช้การเพิ่มระดับน้ำจาก 10 เป็น 13 ซม. ให้ผลผลิตไหลล้นลงรางที่มีผ้าขาวบางกรอง
-          เหลือแม่พันธุ์ไว้ 20% แล้วลดระดับกลับ น้ำหมุนเวียนใช้ซ้ำทั้งหมด</span>
-          <span class="en">Harvesting with no robot arm: raise the water from 10 cm to 13 cm and the crop floats out over a
-          cheesecloth-lined channel. 20 % is kept back as seed stock, the level drops again, and all water is recycled.</span>
-        </p>
-        <ul class="tags"><li>IoT</li><li>App Inventor</li><li>Relays</li><li>Temp / humidity sensing</li><li>Water level control</li></ul>
-        <div class="actions">
-          <a class="btn primary" href="https://github.com/mistyz0792/portfolio/tree/main/projects/03-wolffia-farming-automation"><span class="th">รายละเอียด</span><span class="en">Details</span></a>
-          <a class="btn" href="projects/03-wolffia-farming-automation/docs/presentation.pdf"><span class="th">สไลด์นำเสนอ</span><span class="en">Presentation</span></a>
-        </div>
+    <li>
+      <div class="when">DEC 2025 – MAR 2026</div>
+      <div class="what">
+        <h3>R&amp;D IoT for Agriculture <span class="role"><span class="th">(ฝึกงาน)</span><span class="en">(Internship)</span></span></h3>
+        <p class="where">Prior Solution Co., Ltd. · Bangkok</p>
+        <ul>
+          <li><span class="th">ศึกษาและประเมินเทคโนโลยี IoT สำหรับงานเกษตร</span>
+              <span class="en">Researched and evaluated IoT technologies for agricultural applications.</span></li>
+          <li><span class="th">ออกแบบและพัฒนาระบบต้นแบบเพื่อพิสูจน์แนวคิด R&amp;D ที่ได้รับมอบหมาย</span>
+              <span class="en">Designed and developed prototype systems to validate assigned R&amp;D concepts.</span></li>
+          <li><span class="th">ทดลอง เก็บข้อมูล และวิเคราะห์ประสิทธิภาพเพื่อสนับสนุนการพัฒนาผลิตภัณฑ์</span>
+              <span class="en">Conducted experiments, data collection and performance analysis to support product development.</span></li>
+        </ul>
       </div>
-    </article>
+    </li>
 
-    <article class="card">
-      <a class="shot" href="projects/04-plant-watering-blynk/images/blynk-dashboard.png">
-        <img src="projects/04-plant-watering-blynk/images/blynk-dashboard.png" alt="Blynk dashboard" loading="lazy">
-      </a>
-      <div class="body">
-        <div class="num">04</div>
-        <h3>Automatic Plant Watering System via Mobile Control</h3>
-        <p class="sub">ระบบรดน้ำต้นไม้อัตโนมัติ ควบคุมผ่านมือถือด้วย Blynk</p>
-        <p class="meta"><span class="th">ระบบ IoT 4 โซน</span><span class="en">Four-zone IoT system</span></p>
-        <p>
-          <span class="th">รดน้ำ 4 โซนแยกกัน สั่งเองก็ได้ ตั้งเวลารายวันก็ได้ หรือปล่อยให้โหมดอัตโนมัติตัดสินใจจากค่าความชื้นในดิน
-          ตามเกณฑ์ Min–Max ที่ตั้งไว้</span>
-          <span class="en">Four independent zones — switch them by hand, put them on a daily timer, or hand over to an
-          automatic mode that waters against live soil-moisture readings and a min/max threshold.</span>
-        </p>
-        <ul class="tags"><li>Blynk</li><li>Wi-Fi MCU</li><li>Soil moisture</li><li>Relays</li><li>Scheduling</li></ul>
-        <div class="actions">
-          <a class="btn primary" href="https://github.com/mistyz0792/portfolio/tree/main/projects/04-plant-watering-blynk"><span class="th">รายละเอียด</span><span class="en">Details</span></a>
-          <a class="btn" href="projects/04-plant-watering-blynk/docs/source-code-listing-blynk.pdf"><span class="th">โค้ด</span><span class="en">Source listing</span></a>
-        </div>
+    <li>
+      <div class="when">JUN 2025 – SEP 2025</div>
+      <div class="what">
+        <h3>Improvement and Design of SCARA Robot Control System</h3>
+        <p class="where"><span class="th">ปริญญานิพนธ์ · มจพ.</span><span class="en">Senior thesis · KMUTNB</span></p>
+        <ul>
+          <li><span class="th">ออกแบบระบบควบคุมแขนกลด้วย Raspberry Pi และ ESP32</span>
+              <span class="en">Designed a robotic arm control system using Raspberry Pi and ESP32.</span></li>
+          <li><span class="th">ใช้ Inverse Kinematics คำนวณพิกัดและควบคุมการเคลื่อนที่ผ่าน GUI</span>
+              <span class="en">Applied inverse kinematics for coordinate calculation and motion control through a GUI.</span></li>
+          <li><span class="th">ทำการสื่อสาร I2C ระหว่าง Raspberry Pi (master) กับ ESP32 (slave) และเขียนโหมดทำงานทั้งอัตโนมัติ เคลื่อนที่อิสระ และหยิบ-วางชิ้นงาน</span>
+              <span class="en">Implemented I2C communication between Raspberry Pi (master) and ESP32 (slave), with automatic, free-movement and pick-and-place operating modes.</span></li>
+        </ul>
       </div>
-    </article>
+    </li>
 
-    <article class="card">
-      <a class="shot" href="projects/05-internship-prior-solution/images/greenhouse-render-02.png">
-        <img src="projects/05-internship-prior-solution/images/greenhouse-render-02.png" alt="Greenhouse 3D render" loading="lazy">
-      </a>
-      <div class="body">
-        <div class="num">05</div>
-        <h3>Prior Solution Co., Ltd. — R&amp;D IoT for Agriculture</h3>
-        <p class="sub">สหกิจศึกษา · บริษัท ไพรเออร์ โซลูชั่น จำกัด</p>
-        <p class="meta"><span class="th">ฝึกงานสหกิจศึกษา · 2/2568</span><span class="en">Co-operative education internship · 2025</span></p>
-        <p>
-          <span class="th">R&amp;D ฟาร์มอัจฉริยะ เป้าหมายคือลดการใช้แรงงานโดยยังคงประสิทธิภาพและความคุ้มค่า
-          ทดลองเปรียบเทียบระบบไฮโดรโปนิกส์หลายแบบ ทำระบบเติมปุ๋ยอัตโนมัติ เซนเซอร์น้ำ/อากาศ และออกแบบโรงเรือน 3D</span>
-          <span class="en">Smart-farm R&amp;D aimed at cutting manual labour without losing yield or cost-effectiveness:
-          benchmarking hydroponic systems, automatic fertiliser dosing, water and climate sensing, and 3D greenhouse design.</span>
-        </p>
-        <ul class="tags"><li>IoT platform</li><li>Hydroponics</li><li>Sensor systems</li><li>Fertiliser dosing</li><li>3D design</li></ul>
-        <div class="actions">
-          <a class="btn primary" href="https://github.com/mistyz0792/portfolio/tree/main/projects/05-internship-prior-solution"><span class="th">รายละเอียด</span><span class="en">Details</span></a>
-          <a class="btn" href="projects/05-internship-prior-solution/docs/internship-poster.pdf"><span class="th">โปสเตอร์</span><span class="en">Poster</span></a>
-          <a class="btn" href="projects/05-internship-prior-solution/docs/internship-report.pdf"><span class="th">รายงานฉบับเต็ม</span><span class="en">Full report</span></a>
-        </div>
+    <li>
+      <div class="when">DEC 2024 – FEB 2025</div>
+      <div class="what">
+        <h3>Automatic Wolffia (Duckweed) Farming System</h3>
+        <p class="where"><span class="th">โปรเจกต์ระบบอัตโนมัติ</span><span class="en">Automation project</span></p>
+        <ul>
+          <li><span class="th">พัฒนาระบบฟาร์มอัจฉริยะอัตโนมัติด้วย PLC, ESP32 และการสื่อสาร Modbus TCP</span>
+              <span class="en">Developed an automated smart-farming system using PLC, ESP32 and Modbus TCP communication.</span></li>
+          <li><span class="th">สร้างแอปมือถือด้วย Thunkable สำหรับมอนิเตอร์และสั่งงานระยะไกล</span>
+              <span class="en">Built a mobile application for remote monitoring and control using Thunkable.</span></li>
+          <li><span class="th">เชื่อม Google Sheets เป็นฐานข้อมูลคลาวด์เพื่อแลกเปลี่ยนข้อมูลแบบเรียลไทม์ และร่วมเขียนโปรแกรม PLC กับพัฒนา HMI</span>
+              <span class="en">Integrated Google Sheets as a cloud database for real-time data exchange; collaborated on PLC programming and HMI development.</span></li>
+        </ul>
       </div>
-    </article>
-  </section>
+    </li>
+  </ol>
 
-  <section>
-    <h2><span class="th">ผลงานย่อย</span><span class="en">Smaller work</span></h2>
-    <div class="grid">
-
-      <article class="mini">
-        <a class="shot" href="projects/06-cad-reverse-engineering/images/onshape-models.png">
-          <img src="projects/06-cad-reverse-engineering/images/onshape-models.png" alt="Onshape models" loading="lazy">
-        </a>
-        <div class="body">
-          <div class="num">06</div>
-          <h3>Reverse Engineering &amp; Assembly in Onshape</h3>
-          <p>
-            <span class="th">ถอดแบบชิ้นงานเครื่องกลจากของจริงแล้วสร้างเป็นโมเดล 3D และ assembly — ปากกาจับชิ้นงาน,
-            toggle clamp, จิ๊กยึด, บันไดมีล้อ, โครงเก้าอี้</span>
-            <span class="en">Measuring real mechanical parts and rebuilding them as parametric models and working
-            assemblies — machine vise, toggle clamps, fixtures, a step ladder and a chair frame.</span>
-          </p>
-          <ul class="tags"><li>Onshape</li><li>CAD</li><li>Assembly mates</li></ul>
-          <div class="actions">
-            <a class="btn primary" href="https://github.com/mistyz0792/portfolio/tree/main/projects/06-cad-reverse-engineering"><span class="th">รายละเอียด</span><span class="en">Details</span></a>
-            <a class="btn" href="projects/06-cad-reverse-engineering/docs/reverse-engineering-assembly-practice.pdf">PDF</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="mini">
-        <a class="shot" href="projects/07-dht-monitor-3-platforms/images/dashboards-overview.png">
-          <img src="projects/07-dht-monitor-3-platforms/images/dashboards-overview.png" alt="IoT dashboards" loading="lazy">
-        </a>
-        <div class="body">
-          <div class="num">07</div>
-          <h3>DHT Monitor on 3 Platforms</h3>
-          <p>
-            <span class="th">เซนเซอร์ตัวเดียวส่งข้อมูลขึ้น ThingsBoard, ThingSpeak และ Google Sheets พร้อมกัน
-            เพื่อเทียบว่าแต่ละแบบเหมาะกับงานไหน พร้อมแจ้งเตือนผ่าน Telegram เมื่อค่าเกินเกณฑ์</span>
-            <span class="en">One sensor streaming to ThingsBoard, ThingSpeak and Google Sheets at once to compare what each
-            is good at — plus automatic Telegram alerts when a threshold is crossed.</span>
-          </p>
-          <ul class="tags"><li>ThingsBoard</li><li>ThingSpeak</li><li>Google Sheets</li><li>Telegram Bot</li></ul>
-          <div class="actions">
-            <a class="btn primary" href="https://github.com/mistyz0792/portfolio/tree/main/projects/07-dht-monitor-3-platforms"><span class="th">รายละเอียด</span><span class="en">Details</span></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="mini">
-        <a class="shot" href="projects/08-object-detection-roboflow/images/roboflow-dataset.png">
-          <img src="projects/08-object-detection-roboflow/images/roboflow-dataset.png" alt="Roboflow dataset" loading="lazy">
-        </a>
-        <div class="body">
-          <div class="num">08</div>
-          <h3>Object Detection with Roboflow</h3>
-          <p>
-            <span class="th">ถ่ายภาพเอง ติด bounding box แยกคลาสตามสี จัดเวอร์ชัน dataset แล้วเทรนโมเดลตรวจจับวัตถุ —
-            เป็นครึ่งหนึ่งของงาน pick-and-place ที่ต้องคัดแยกชิ้นงานก่อนหยิบ</span>
-            <span class="en">Capturing the images, annotating bounding boxes by colour class, versioning the dataset and
-            training a detector — the perception half of a colour-sorting pick-and-place task.</span>
-          </p>
-          <ul class="tags"><li>Roboflow</li><li>Object detection</li><li>Dataset annotation</li></ul>
-          <div class="actions">
-            <a class="btn primary" href="https://github.com/mistyz0792/portfolio/tree/main/projects/08-object-detection-roboflow"><span class="th">รายละเอียด</span><span class="en">Details</span></a>
-          </div>
-        </div>
-      </article>
-
+  <div class="education">
+    <div class="when">JUL 2022 – MAR 2026</div>
+    <div class="what">
+      <h3><span class="th">การศึกษา</span><span class="en">Education</span></h3>
+      <p><strong>B.Eng. in Electronic Engineering Technology (Instrumentation and Control)</strong><br>
+      King Mongkut's University of Technology North Bangkok<br>
+      <span class="hl">GPA 3.45 / 4.00 · <span class="th">เกียรตินิยมอันดับ 2</span><span class="en">Second-Class Honors</span></span></p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <h2><span class="th">ทักษะ</span><span class="en">Skills</span></h2>
-    <div class="skills">
-      <div>
-        <h4>Embedded &amp; Control</h4>
-        <p>ESP32 · Arduino · Raspberry Pi · I2C · UART · TB6600 &amp; Yaskawa SGDA drives · inverse kinematics · G-code · homing with photoelectric sensors</p>
+<!-- =========================== PROJECTS =========================== -->
+<section id="projects" class="wrap reveal">
+  <h2><span class="num">03</span><span class="th">ผลงาน</span><span class="en">Projects</span></h2>
+  <p class="section-note">
+    <span class="th">กดที่เอกสารหรือรูปใดก็ได้เพื่อเปิดดูในหน้านี้เลย ไม่ต้องดาวน์โหลด</span>
+    <span class="en">Click any document or image to read it right here — no download needed.</span>
+  </p>
+
+  <!-- 01 -->
+  <article class="card">
+    <button class="shot" type="button"
+            data-view="projects/01-scara-robot-control/images/control-gui-01.png" data-type="img"
+            data-title-th="หน้าจอโปรแกรมควบคุม SCARA" data-title-en="SCARA control GUI">
+      <img src="projects/01-scara-robot-control/images/control-gui-01.png" alt="SCARA control GUI" loading="lazy">
+    </button>
+    <div class="body">
+      <div class="card-top"><span class="pill">01</span><span class="period">JUN 2025 – SEP 2025</span></div>
+      <h3>Design and Optimization of a SCARA Robot Control System</h3>
+      <p class="sub">ปรับปรุงและออกแบบระบบควบคุมหุ่นยนต์ SCARA</p>
+      <p>
+        <span class="th">Raspberry Pi ทำหน้าที่ Master คำนวณจลนศาสตร์ผกผันและวางแผนการเคลื่อนที่ ส่วน ESP32 ประจำแต่ละข้อต่อ
+        รับคำสั่งผ่าน I2C แล้วสร้างสัญญาณพัลส์ควบคุมมอเตอร์เอง ทดสอบ pick-and-place สำเร็จทุกครั้ง และอ่าน G-code ได้</span>
+        <span class="en">A Raspberry Pi master solves inverse kinematics and plans motion; four ESP32 joint processors take
+        I2C commands and generate their own step/direction pulses. 100 % success on pick-and-place, with G-code support.</span>
+      </p>
+      <ul class="tags"><li>Raspberry Pi</li><li>ESP32</li><li>I2C</li><li>Python / Tkinter</li><li>Arduino C++</li><li>Inverse kinematics</li><li>G-code</li></ul>
+
+      <div class="docs">
+        <button class="doc" type="button" data-view="projects/01-scara-robot-control/docs/thesis-full.pdf" data-type="pdf" data-preview="assets/previews/01-thesis-full.png" data-title-th="เล่มปริญญานิพนธ์ (160 หน้า)" data-title-en="Full thesis (160 pages)">
+          <img src="assets/previews/01-thesis-full.png" alt="" loading="lazy"><span class="th">เล่มปริญญานิพนธ์</span><span class="en">Full thesis</span></button>
+        <button class="doc" type="button" data-view="projects/01-scara-robot-control/docs/presentation-slides.pdf" data-type="pdf" data-preview="assets/previews/01-presentation-slides.png" data-title-th="สไลด์นำเสนอ" data-title-en="Presentation slides">
+          <img src="assets/previews/01-presentation-slides.png" alt="" loading="lazy"><span class="th">สไลด์นำเสนอ</span><span class="en">Slides</span></button>
+        <button class="doc" type="button" data-view="projects/01-scara-robot-control/docs/poster.pdf" data-type="pdf" data-preview="assets/previews/01-poster.png" data-title-th="โปสเตอร์โครงงาน" data-title-en="Project poster">
+          <img src="assets/previews/01-poster.png" alt="" loading="lazy"><span class="th">โปสเตอร์</span><span class="en">Poster</span></button>
+        <button class="doc" type="button" data-view="projects/01-scara-robot-control/docs/circuit-diagram.pdf" data-type="pdf" data-preview="assets/previews/01-circuit-diagram.png" data-title-th="ผังวงจร" data-title-en="Circuit diagram">
+          <img src="assets/previews/01-circuit-diagram.png" alt="" loading="lazy"><span class="th">ผังวงจร</span><span class="en">Circuit</span></button>
       </div>
-      <div>
-        <h4>Software</h4>
-        <p>Python (Tkinter, matplotlib, pyserial, smbus2, pigpio) · Arduino C++ · multi-threaded instrument GUIs · CSV data logging</p>
-      </div>
-      <div>
-        <h4>IoT &amp; Data</h4>
-        <p>Bluetooth / BLE · RFbeam K-LD7 Doppler radar · Blynk · ThingsBoard · ThingSpeak · Google Sheets · Telegram Bot API</p>
-      </div>
-      <div>
-        <h4>Vision &amp; Design</h4>
-        <p>Roboflow object detection · Onshape CAD · 3D printing · circuit diagrams · technical documentation (TH / EN)</p>
+
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/mistyz0792/portfolio/tree/main/projects/01-scara-robot-control"><span class="th">โค้ดและรายละเอียด</span><span class="en">Code &amp; details</span></a>
+        <a class="btn" href="https://cad.onshape.com/documents/4489548dec43b75017a02eb4/w/150e8646fc0df473b1573c5d/e/71491090db7d655e8ac9f38e">CAD (Onshape)</a>
       </div>
     </div>
-  </section>
+  </article>
+
+  <!-- 02 -->
+  <article class="card">
+    <div class="shot radar" aria-hidden="true">
+      <svg viewBox="0 0 200 200" role="img">
+        <circle cx="100" cy="100" r="88" class="r-ring"/><circle cx="100" cy="100" r="60" class="r-ring"/><circle cx="100" cy="100" r="32" class="r-ring"/>
+        <line x1="100" y1="12" x2="100" y2="188" class="r-ring"/><line x1="12" y1="100" x2="188" y2="100" class="r-ring"/>
+        <path d="M100 100 L100 12 A88 88 0 0 1 162 38 Z" class="r-sweep"/>
+        <circle cx="132" cy="66" r="5" class="r-dot"/>
+      </svg>
+    </div>
+    <div class="body">
+      <div class="card-top"><span class="pill">02</span><span class="period">APR 2026 – MAY 2026</span></div>
+      <h3>Mobile Robot with Bluetooth + Stationary K-LD7 Radar Monitoring</h3>
+      <p class="sub">Exchange Program · Hochschule Esslingen, Germany</p>
+      <p>
+        <span class="th">เรดาร์ Doppler ตัวเดียวที่ติดตั้งอยู่กับที่ ทำหน้าที่เป็นระบบระบุตำแหน่งให้หุ่นยนต์ที่ไม่มีทั้ง encoder และ IMU
+        ผู้ใช้คลิกจุดเป้าหมายบนแผนที่เรดาร์แล้วหุ่นยนต์ขับไปเอง โดยหาทิศทางจากรอยเดินที่เรดาร์จับได้</span>
+        <span class="en">One stationary Doppler radar acts as the positioning system for a robot with no encoders and no IMU.
+        Click a goal on the radar map and it drives there — deriving its own heading from the trail the radar sees.</span>
+      </p>
+      <ul class="tags"><li>Python</li><li>Tkinter</li><li>matplotlib</li><li>pyserial</li><li>K-LD7 radar</li><li>BLE</li><li>Bluetooth SPP</li><li>Makeblock</li></ul>
+
+      <div class="docs">
+        <button class="doc" type="button" data-view="projects/02-mobile-robot-kld7-radar/docs/project-report-esslingen.pdf" data-type="pdf" data-preview="assets/previews/02-project-report-esslingen.png" data-title-th="รายงานโครงการ (221 หน้า)" data-title-en="Project report (221 pages)">
+          <img src="assets/previews/02-project-report-esslingen.png" alt="" loading="lazy"><span class="th">รายงานฉบับเต็ม</span><span class="en">Full report</span></button>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/mistyz0792/portfolio/tree/main/projects/02-mobile-robot-kld7-radar"><span class="th">โค้ดและรายละเอียด</span><span class="en">Code &amp; details</span></a>
+      </div>
+    </div>
+  </article>
+
+  <!-- 03 -->
+  <article class="card">
+    <button class="shot" type="button"
+            data-view="projects/03-wolffia-farming-automation/images/app-inventor-screens.png" data-type="img"
+            data-title-th="หน้าจอแอป Midori Wolffia" data-title-en="Midori Wolffia app screens">
+      <img src="projects/03-wolffia-farming-automation/images/app-inventor-screens.png" alt="Midori Wolffia app screens" loading="lazy">
+    </button>
+    <div class="body">
+      <div class="card-top"><span class="pill">03</span><span class="period">DEC 2024 – FEB 2025</span></div>
+      <h3>Midori Wolffia — Automated Duckweed Farming</h3>
+      <p class="sub">เครื่องเพาะเลี้ยงไข่ผำโดยระบบ automation ควบคุมผ่านแอปพลิเคชัน</p>
+      <p>
+        <span class="th">ระบบฟาร์มอัจฉริยะที่ใช้ PLC + ESP32 คุยกันด้วย Modbus TCP เก็บข้อมูลบน Google Sheets
+        เก็บเกี่ยวโดยไม่ใช้แขนกล — เพิ่มระดับน้ำจาก 10 เป็น 13 ซม. ให้ผลผลิตไหลล้นลงรางที่มีผ้าขาวบางกรอง
+        เหลือแม่พันธุ์ไว้ 20% แล้วลดระดับกลับ น้ำหมุนเวียนใช้ซ้ำทั้งหมด</span>
+        <span class="en">A smart farm on PLC + ESP32 over Modbus TCP, logging to Google Sheets. Harvesting uses no robot arm:
+        raise the water from 10 cm to 13 cm and the crop floats out over a cheesecloth-lined channel. 20 % is kept back
+        as seed stock, the level drops again, and all water is recycled.</span>
+      </p>
+      <ul class="tags"><li>PLC</li><li>ESP32</li><li>Modbus TCP</li><li>HMI</li><li>Thunkable</li><li>Google Sheets</li><li>Relays</li></ul>
+
+      <div class="docs">
+        <button class="doc" type="button" data-view="projects/03-wolffia-farming-automation/docs/presentation.pdf" data-type="pdf" data-preview="assets/previews/03-presentation.png" data-title-th="สไลด์นำเสนอ (39 หน้า)" data-title-en="Presentation (39 slides)">
+          <img src="assets/previews/03-presentation.png" alt="" loading="lazy"><span class="th">สไลด์นำเสนอ</span><span class="en">Presentation</span></button>
+        <button class="doc" type="button" data-view="projects/03-wolffia-farming-automation/docs/mobile-app-design.pdf" data-type="pdf" data-preview="assets/previews/03-mobile-app-design.png" data-title-th="การออกแบบแอป" data-title-en="Mobile app design">
+          <img src="assets/previews/03-mobile-app-design.png" alt="" loading="lazy"><span class="th">แบบแอป</span><span class="en">App design</span></button>
+        <button class="doc" type="button" data-view="projects/03-wolffia-farming-automation/docs/source-code-listing.pdf" data-type="pdf" data-preview="assets/previews/03-source-code-listing.png" data-title-th="รวมโค้ดของระบบ" data-title-en="Source code listing">
+          <img src="assets/previews/03-source-code-listing.png" alt="" loading="lazy"><span class="th">โค้ด</span><span class="en">Code</span></button>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/mistyz0792/portfolio/tree/main/projects/03-wolffia-farming-automation"><span class="th">รายละเอียด</span><span class="en">Details</span></a>
+      </div>
+    </div>
+  </article>
+
+  <!-- 04 -->
+  <article class="card">
+    <button class="shot" type="button"
+            data-view="projects/04-plant-watering-blynk/images/blynk-dashboard.png" data-type="img"
+            data-title-th="แดชบอร์ด Blynk" data-title-en="Blynk dashboard">
+      <img src="projects/04-plant-watering-blynk/images/blynk-dashboard.png" alt="Blynk dashboard" loading="lazy">
+    </button>
+    <div class="body">
+      <div class="card-top"><span class="pill">04</span></div>
+      <h3>Automatic Plant Watering System via Mobile Control</h3>
+      <p class="sub">ระบบรดน้ำต้นไม้อัตโนมัติ ควบคุมผ่านมือถือด้วย Blynk</p>
+      <p>
+        <span class="th">รดน้ำ 4 โซนแยกกัน สั่งเองก็ได้ ตั้งเวลารายวันก็ได้ หรือปล่อยให้โหมดอัตโนมัติตัดสินใจจากค่าความชื้นในดิน
+        ตามเกณฑ์ Min–Max ที่ตั้งไว้</span>
+        <span class="en">Four independent zones — switch them by hand, put them on a daily timer, or hand over to an
+        automatic mode that waters against live soil-moisture readings and a min/max threshold.</span>
+      </p>
+      <ul class="tags"><li>Blynk</li><li>Wi-Fi MCU</li><li>Soil moisture</li><li>Relays</li><li>Scheduling</li></ul>
+
+      <div class="docs">
+        <button class="doc" type="button" data-view="projects/04-plant-watering-blynk/docs/source-code-listing-blynk.pdf" data-type="pdf" data-preview="assets/previews/04-source-code-listing-blynk.png" data-title-th="รวมโค้ดระบบรดน้ำ" data-title-en="Source code listing">
+          <img src="assets/previews/04-source-code-listing-blynk.png" alt="" loading="lazy"><span class="th">โค้ด</span><span class="en">Code</span></button>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/mistyz0792/portfolio/tree/main/projects/04-plant-watering-blynk"><span class="th">รายละเอียด</span><span class="en">Details</span></a>
+      </div>
+    </div>
+  </article>
+
+  <!-- 05 -->
+  <article class="card">
+    <button class="shot" type="button"
+            data-view="projects/05-internship-prior-solution/images/greenhouse-render-02.png" data-type="img"
+            data-title-th="แบบ 3D โรงเรือนไฮโดรโปนิกส์" data-title-en="Greenhouse 3D design">
+      <img src="projects/05-internship-prior-solution/images/greenhouse-render-02.png" alt="Greenhouse 3D render" loading="lazy">
+    </button>
+    <div class="body">
+      <div class="card-top"><span class="pill">05</span><span class="period">DEC 2025 – MAR 2026</span></div>
+      <h3>Prior Solution Co., Ltd. — R&amp;D IoT for Agriculture</h3>
+      <p class="sub">สหกิจศึกษา · บริษัท ไพรเออร์ โซลูชั่น จำกัด</p>
+      <p>
+        <span class="th">R&amp;D ฟาร์มอัจฉริยะ เป้าหมายคือลดการใช้แรงงานโดยยังคงประสิทธิภาพและความคุ้มค่า
+        ทดลองเปรียบเทียบระบบไฮโดรโปนิกส์หลายแบบ ทำระบบเติมปุ๋ยอัตโนมัติ เซนเซอร์น้ำ/อากาศ และออกแบบโรงเรือน 3D</span>
+        <span class="en">Smart-farm R&amp;D aimed at cutting manual labour without losing yield or cost-effectiveness:
+        benchmarking hydroponic systems, automatic fertiliser dosing, water and climate sensing, and 3D greenhouse design.</span>
+      </p>
+      <ul class="tags"><li>IoT platform</li><li>Hydroponics</li><li>Sensor systems</li><li>Fertiliser dosing</li><li>3D design</li></ul>
+
+      <div class="docs">
+        <button class="doc" type="button" data-view="projects/05-internship-prior-solution/docs/internship-poster.pdf" data-type="pdf" data-preview="assets/previews/05-internship-poster.png" data-title-th="โปสเตอร์สหกิจศึกษา" data-title-en="Internship poster">
+          <img src="assets/previews/05-internship-poster.png" alt="" loading="lazy"><span class="th">โปสเตอร์</span><span class="en">Poster</span></button>
+        <button class="doc" type="button" data-view="projects/05-internship-prior-solution/docs/internship-report.pdf" data-type="pdf" data-preview="assets/previews/05-internship-report.png" data-title-th="รายงานสหกิจศึกษา (111 หน้า)" data-title-en="Internship report (111 pages)">
+          <img src="assets/previews/05-internship-report.png" alt="" loading="lazy"><span class="th">รายงานฉบับเต็ม</span><span class="en">Full report</span></button>
+        <button class="doc" type="button" data-view="projects/05-internship-prior-solution/images/greenhouse-render-03.png" data-type="img" data-title-th="ภาพเรนเดอร์โรงเรือน" data-title-en="Greenhouse render">
+          <img src="projects/05-internship-prior-solution/images/greenhouse-render-03.png" alt="" loading="lazy"><span class="th">ภาพเรนเดอร์</span><span class="en">Renders</span></button>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/mistyz0792/portfolio/tree/main/projects/05-internship-prior-solution"><span class="th">รายละเอียด</span><span class="en">Details</span></a>
+      </div>
+    </div>
+  </article>
+
+  <h3 class="subhead"><span class="th">ผลงานย่อย</span><span class="en">Smaller work</span></h3>
+  <div class="grid">
+
+    <article class="mini">
+      <button class="shot" type="button" data-view="projects/06-cad-reverse-engineering/images/onshape-models.png" data-type="img" data-title-th="ชิ้นงาน CAD ใน Onshape" data-title-en="Onshape models">
+        <img src="projects/06-cad-reverse-engineering/images/onshape-models.png" alt="Onshape models" loading="lazy">
+      </button>
+      <div class="body">
+        <div class="card-top"><span class="pill">06</span></div>
+        <h3>Reverse Engineering &amp; Assembly in Onshape</h3>
+        <p>
+          <span class="th">ถอดแบบชิ้นงานเครื่องกลจากของจริงแล้วสร้างเป็นโมเดล 3D และ assembly — ปากกาจับชิ้นงาน,
+          toggle clamp, จิ๊กยึด, บันไดมีล้อ, โครงเก้าอี้</span>
+          <span class="en">Measuring real mechanical parts and rebuilding them as parametric models and working
+          assemblies — machine vise, toggle clamps, fixtures, a step ladder and a chair frame.</span>
+        </p>
+        <ul class="tags"><li>Onshape</li><li>CAD</li><li>Assembly mates</li></ul>
+        <div class="docs">
+          <button class="doc" type="button" data-view="projects/06-cad-reverse-engineering/docs/reverse-engineering-assembly-practice.pdf" data-type="pdf" data-preview="assets/previews/06-reverse-engineering-assembly-practice.png" data-title-th="เอกสารงานถอดแบบ" data-title-en="Reverse-engineering document">
+            <img src="assets/previews/06-reverse-engineering-assembly-practice.png" alt="" loading="lazy"><span class="th">เอกสาร</span><span class="en">Document</span></button>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="https://github.com/mistyz0792/portfolio/tree/main/projects/06-cad-reverse-engineering"><span class="th">รายละเอียด</span><span class="en">Details</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mini">
+      <button class="shot" type="button" data-view="projects/07-dht-monitor-3-platforms/images/dashboards-overview.png" data-type="img" data-title-th="แดชบอร์ด 3 แพลตฟอร์ม" data-title-en="Three IoT dashboards">
+        <img src="projects/07-dht-monitor-3-platforms/images/dashboards-overview.png" alt="IoT dashboards" loading="lazy">
+      </button>
+      <div class="body">
+        <div class="card-top"><span class="pill">07</span></div>
+        <h3>DHT Monitor on 3 Platforms</h3>
+        <p>
+          <span class="th">เซนเซอร์ตัวเดียวส่งข้อมูลขึ้น ThingsBoard, ThingSpeak และ Google Sheets พร้อมกัน
+          เพื่อเทียบว่าแต่ละแบบเหมาะกับงานไหน พร้อมแจ้งเตือนผ่าน Telegram เมื่อค่าเกินเกณฑ์</span>
+          <span class="en">One sensor streaming to ThingsBoard, ThingSpeak and Google Sheets at once to compare what each
+          is good at — plus automatic Telegram alerts when a threshold is crossed.</span>
+        </p>
+        <ul class="tags"><li>ThingsBoard</li><li>ThingSpeak</li><li>Google Sheets</li><li>Telegram Bot</li></ul>
+        <div class="actions">
+          <a class="btn primary" href="https://github.com/mistyz0792/portfolio/tree/main/projects/07-dht-monitor-3-platforms"><span class="th">รายละเอียด</span><span class="en">Details</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mini">
+      <button class="shot" type="button" data-view="projects/08-object-detection-roboflow/images/roboflow-dataset.png" data-type="img" data-title-th="Dataset บน Roboflow" data-title-en="Roboflow dataset">
+        <img src="projects/08-object-detection-roboflow/images/roboflow-dataset.png" alt="Roboflow dataset" loading="lazy">
+      </button>
+      <div class="body">
+        <div class="card-top"><span class="pill">08</span></div>
+        <h3>Object Detection with Roboflow</h3>
+        <p>
+          <span class="th">ถ่ายภาพเอง ติด bounding box แยกคลาสตามสี จัดเวอร์ชัน dataset แล้วเทรนโมเดลตรวจจับวัตถุ —
+          เป็นครึ่งหนึ่งของงาน pick-and-place ที่ต้องคัดแยกชิ้นงานก่อนหยิบ</span>
+          <span class="en">Capturing the images, annotating bounding boxes by colour class, versioning the dataset and
+          training a detector — the perception half of a colour-sorting pick-and-place task.</span>
+        </p>
+        <ul class="tags"><li>Roboflow</li><li>Object detection</li><li>Dataset annotation</li></ul>
+        <div class="actions">
+          <a class="btn primary" href="https://github.com/mistyz0792/portfolio/tree/main/projects/08-object-detection-roboflow"><span class="th">รายละเอียด</span><span class="en">Details</span></a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============================ SKILLS ============================ -->
+<section id="skills" class="wrap reveal">
+  <h2><span class="num">04</span><span class="th">ทักษะ</span><span class="en">Skills</span></h2>
+  <div class="skills">
+    <div>
+      <h4>Hardware / Platforms</h4>
+      <ul class="tags"><li>ESP32</li><li>Arduino</li><li>Raspberry Pi</li><li>PLC — Siemens</li><li>Samkoon</li></ul>
+    </div>
+    <div>
+      <h4>Industrial Communication</h4>
+      <ul class="tags"><li>Modbus RTU (RS-485)</li><li>Modbus TCP</li><li>I2C</li><li>UART</li><li>BLE</li></ul>
+    </div>
+    <div>
+      <h4>Software / Applications</h4>
+      <ul class="tags"><li>Wonderware InTouch</li><li>Blynk</li><li>ThingsBoard</li><li>ThingSpeak</li><li>VS Code</li></ul>
+    </div>
+    <div>
+      <h4>Programming</h4>
+      <ul class="tags"><li>C</li><li>C++</li><li>Python</li><li>HTML</li><li>CSS</li></ul>
+    </div>
+    <div>
+      <h4>CAD &amp; Design</h4>
+      <ul class="tags"><li>Onshape</li><li>AutoCAD</li><li>3D printing</li></ul>
+    </div>
+    <div>
+      <h4><span class="th">ภาษา</span><span class="en">Languages</span></h4>
+      <ul class="tags"><li><span class="th">ไทย — ดีมาก</span><span class="en">Thai — Advanced</span></li><li><span class="th">อังกฤษ — ปานกลาง</span><span class="en">English — Intermediate</span></li></ul>
+    </div>
+  </div>
+
+  <div class="extra">
+    <h4><span class="th">ทักษะเพิ่มเติม</span><span class="en">Additional strengths</span></h4>
+    <p>
+      <span class="th">ปรับตัวได้ดีและรับผิดชอบงานที่ได้รับมอบหมายจนจบ · เรียนรู้เทคโนโลยีใหม่ได้เร็วและพัฒนาตัวเองต่อเนื่อง</span>
+      <span class="en">Adapts quickly and takes responsibility for assigned tasks through to completion · fast learner of new
+      technologies with continuous self-development.</span>
+    </p>
+  </div>
+</section>
+
+<!-- =========================== CONTACT =========================== -->
+<section id="contact" class="wrap reveal">
+  <h2><span class="num">05</span><span class="th">ติดต่อ</span><span class="en">Contact</span></h2>
+  <div class="contact-card">
+    <img class="contact-photo" src="assets/photo.jpg" alt="Theecharat Klainin">
+    <div>
+      <h3>Theecharat Klainin</h3>
+      <p class="sub">ธีร์ชรัสมิ์ คล้ายนิล · Instrumentation &amp; Control</p>
+      <ul class="contact-chips big">
+        <li><a href="tel:+66929574621">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
+          +66 92-957-4621</a></li>
+        <li><a href="mailto:k.theecharat@gmail.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z" fill="currentColor"/></svg>
+          k.theecharat@gmail.com</a></li>
+        <li><a href="https://github.com/mistyz0792">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.08.68-.22.68-.48v-1.7C6.73 19.9 6.14 18 6.14 18a2.7 2.7 0 0 0-1.13-1.49c-.92-.63.07-.62.07-.62a2.14 2.14 0 0 1 1.56 1.05 2.17 2.17 0 0 0 2.96.85 2.18 2.18 0 0 1 .65-1.37c-2.22-.25-4.55-1.11-4.55-4.94a3.87 3.87 0 0 1 1.03-2.69 3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.03a9.4 9.4 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03a3.6 3.6 0 0 1 .1 2.64 3.87 3.87 0 0 1 1.03 2.69c0 3.84-2.34 4.69-4.57 4.93a2.43 2.43 0 0 1 .69 1.88v2.79c0 .27.18.58.69.48A10 10 0 0 0 12 2z" fill="currentColor"/></svg>
+          github.com/mistyz0792</a></li>
+      </ul>
+      <div class="actions">
+        <button class="btn primary" type="button"
+                data-view="docs/resume-theecharat-klainin.pdf" data-type="pdf"
+                data-preview="assets/previews/resume-theecharat-klainin.png"
+                data-title-th="เรซูเม่ — Theecharat Klainin" data-title-en="Résumé — Theecharat Klainin">
+          <span class="th">ดูเรซูเม่</span><span class="en">View résumé</span>
+        </button>
+        <a class="btn" href="docs/resume-theecharat-klainin.pdf" download><span class="th">ดาวน์โหลด PDF</span><span class="en">Download PDF</span></a>
+      </div>
+    </div>
+  </div>
+</section>
 
 </main>
 
 <footer>
   <div class="wrap">
-    <p>
-      <a href="https://github.com/mistyz0792">github.com/mistyz0792</a> ·
-      <a href="mailto:k.theecharat@gmail.com">k.theecharat@gmail.com</a>
-    </p>
+    <p><span class="th">สร้างด้วย HTML/CSS ล้วน โฮสต์บน GitHub Pages</span><span class="en">Plain HTML/CSS, hosted on GitHub Pages</span> ·
+      <a href="https://github.com/mistyz0792/portfolio"><span class="th">ซอร์สโค้ดของเว็บนี้</span><span class="en">Source of this site</span></a></p>
     <p class="fine">
       <span class="th">เอกสารประกอบทั้งหมดเป็นผลงานของผู้จัดทำและทีมตามที่ระบุในแต่ละเล่ม</span>
       <span class="en">All documents are the work of the author and the teams credited within them.</span>
     </p>
   </div>
 </footer>
+
+<!-- ======================== INLINE VIEWER ======================== -->
+<div id="viewer" class="viewer" hidden>
+  <div class="viewer-backdrop" data-close></div>
+  <div class="viewer-panel" role="dialog" aria-modal="true" aria-labelledby="viewer-title">
+    <header class="viewer-bar">
+      <h4 id="viewer-title"></h4>
+      <div class="viewer-tools">
+        <a id="viewer-open" class="btn tiny" href="#" target="_blank" rel="noopener"><span class="th">แท็บใหม่</span><span class="en">New tab</span></a>
+        <a id="viewer-dl" class="btn tiny" href="#" download><span class="th">ดาวน์โหลด</span><span class="en">Download</span></a>
+        <button class="btn tiny close" type="button" data-close aria-label="Close">✕</button>
+      </div>
+    </header>
+    <div class="viewer-body" id="viewer-body"></div>
+  </div>
+</div>
 
 <script src="assets/app.js"></script>
 </body>
