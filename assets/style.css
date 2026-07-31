@@ -149,26 +149,77 @@ html[data-lang="th"] .en, html[data-lang="en"] .th { display: none; }
   display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center;
 }
 
-.portrait { position: relative; width: 200px; aspect-ratio: 1; }
+.portrait { position: relative; width: 210px; aspect-ratio: 1; }
 .portrait::before {
-  content: ""; position: absolute; inset: -5px; border-radius: 50%;
-  background: conic-gradient(from 210deg, var(--accent), var(--accent-2), var(--accent));
-  filter: blur(1px);
+  content: ""; position: absolute; inset: -6px; border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent), var(--accent-2), var(--accent));
+  animation: spin 9s linear infinite;
+}
+.portrait::after {                       /* soft bloom behind the whole thing */
+  content: ""; position: absolute; inset: -22px; border-radius: 50%; z-index: -1;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 45%, transparent), transparent 68%);
+  filter: blur(18px); animation: breathe 5s ease-in-out infinite;
 }
 .portrait img {
   position: relative; width: 100%; height: 100%;
   border-radius: 50%; object-fit: cover; object-position: center 12%;
   border: 5px solid var(--bg); box-shadow: var(--shadow-lg); display: block;
 }
+/* Dashed HUD ring that counter-rotates against the gradient halo. */
+.ring-hud {
+  position: absolute; inset: -20px; border-radius: 50%;
+  border: 1px dashed color-mix(in srgb, var(--accent) 55%, transparent);
+  animation: spin 26s linear infinite reverse;
+}
+.ring-hud::before, .ring-hud::after {
+  content: ""; position: absolute; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent-2); box-shadow: 0 0 10px var(--accent-2);
+}
+.ring-hud::before { top: -4px; left: 50%; }
+.ring-hud::after  { bottom: -4px; left: 50%; }
+
+.status-dot {
+  position: absolute; right: 14px; bottom: 14px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: #22c55e; border: 3px solid var(--bg);
+}
+.status-dot::after {
+  content: ""; position: absolute; inset: -3px; border-radius: 50%;
+  border: 2px solid #22c55e; animation: ping 2.2s ease-out infinite;
+}
+
+@keyframes spin    { to { transform: rotate(360deg); } }
+@keyframes breathe { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+@keyframes ping    { 0% { transform: scale(.85); opacity: .9; } 100% { transform: scale(1.9); opacity: 0; } }
 
 .eyebrow {
+  display: flex; align-items: center; gap: .5rem;
   margin: 0 0 .5rem; color: var(--accent);
   font-size: .76rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
 }
+.blip {
+  width: 8px; height: 8px; border-radius: 50%; flex: none;
+  background: var(--accent-2); box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-2) 70%, transparent);
+  animation: blip 2s ease-out infinite;
+}
+@keyframes blip {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-2) 70%, transparent); }
+  70%  { box-shadow: 0 0 0 9px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
 .hero h1 {
-  margin: 0; font-size: clamp(2.2rem, 5.4vw, 3.4rem); line-height: 1.05; letter-spacing: -.025em;
-  background: linear-gradient(120deg, var(--fg), color-mix(in srgb, var(--fg) 55%, var(--accent)));
+  margin: 0; font-size: clamp(2.3rem, 5.8vw, 3.9rem); line-height: 1.03; letter-spacing: -.03em;
+  background: linear-gradient(100deg,
+    var(--fg) 0%, var(--fg) 30%,
+    var(--accent) 45%, var(--accent-2) 55%,
+    var(--fg) 70%, var(--fg) 100%);
+  background-size: 260% 100%;
   -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shimmer 7s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%, 100% { background-position: 130% 50%; }
+  50%      { background-position: -30% 50%; }
 }
 .thai-name { margin: .35rem 0 0; font-size: 1.1rem; color: var(--fg-dim); font-weight: 600; }
 .lede { margin: 1.1rem 0 0; max-width: 60ch; color: var(--fg-dim); font-size: 1.02rem; }
@@ -459,6 +510,133 @@ footer p { margin: 0 0 .4rem; }
   border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow-sm);
 }
 body.locked { overflow: hidden; }
+
+/* ======================================================================
+   Showpiece layer — scroll progress, grain, cursor glow, marquee,
+   card spotlight + tilt, animated radar. All of it is decoration and is
+   switched off wholesale under prefers-reduced-motion at the bottom.
+   ====================================================================== */
+
+/* --- scroll progress ---------------------------------------------------- */
+.progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 50;
+  background: transparent; pointer-events: none;
+}
+.progress span {
+  display: block; height: 100%; width: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+/* --- film grain --------------------------------------------------------- */
+.grain {
+  position: fixed; inset: 0; z-index: 45; pointer-events: none; opacity: .32;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+html[data-theme="light"] .grain { opacity: .15; }
+@media (prefers-color-scheme: light) { html:not([data-theme="dark"]) .grain { opacity: .15; } }
+
+/* --- cursor glow (pointer devices only) --------------------------------- */
+.cursor-glow {
+  position: fixed; top: 0; left: 0; width: 460px; height: 460px; z-index: 0;
+  margin: -230px 0 0 -230px; border-radius: 50%; pointer-events: none; opacity: 0;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 20%, transparent), transparent 62%);
+  transition: opacity .4s;
+}
+@media (hover: hover) and (pointer: fine) { .cursor-glow.on { opacity: 1; } }
+
+/* --- hero canvas -------------------------------------------------------- */
+.hero-fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .85; }
+.hero-inner, .hero .wrap { position: relative; z-index: 1; }
+
+/* --- tech marquee ------------------------------------------------------- */
+.marquee {
+  margin-top: 3rem; padding: .8rem 0;
+  border-block: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg-elev) 70%, transparent);
+  overflow: hidden; position: relative; z-index: 1;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+  display: flex; align-items: center; gap: 1.1rem; width: max-content;
+  animation: slide 46s linear infinite;
+}
+.marquee span {
+  font: 700 .82rem/1 ui-monospace, "Cascadia Mono", Consolas, monospace;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--fg-dim); white-space: nowrap;
+}
+.marquee i { color: var(--accent); font-size: .6rem; font-style: normal; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* --- section headings get a glow marker --------------------------------- */
+section > h2 .num { position: relative; }
+section > h2 .num::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 26px; height: 26px;
+  transform: translate(-50%, -50%); border-radius: 50%; z-index: -1;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 45%, transparent), transparent 70%);
+  filter: blur(6px);
+}
+
+/* --- stats: sheen on hover ---------------------------------------------- */
+.stats li { position: relative; overflow: hidden; transition: background .25s; }
+.stats li::after {
+  content: ""; position: absolute; inset: 0; transform: translateX(-110%);
+  background: linear-gradient(105deg, transparent, color-mix(in srgb, var(--accent) 16%, transparent), transparent);
+  transition: transform .7s ease;
+}
+.stats li:hover::after { transform: translateX(110%); }
+.stats b { font-variant-numeric: tabular-nums; }
+
+/* --- card spotlight + tilt ---------------------------------------------- */
+.card, .mini, .skills > div, .contact-card {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.card::before, .mini::before, .skills > div::before {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  border-radius: inherit; opacity: 0; transition: opacity .3s;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%),
+              color-mix(in srgb, var(--accent) 14%, transparent), transparent 65%);
+}
+.card:hover::before, .mini:hover::before, .skills > div:hover::before { opacity: 1; }
+
+/* Number pill picks up the accent on hover. */
+.card:hover .pill, .mini:hover .pill {
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  color: var(--on-accent);
+}
+
+/* --- animated radar ----------------------------------------------------- */
+.shot.radar svg { color: var(--accent); overflow: visible; }
+.r-spin { transform-origin: 100px 100px; animation: spin 4.5s linear infinite; }
+.r-sweep { fill: url(#sweepFade); opacity: .9; }
+.r-dot { fill: var(--accent-2); filter: drop-shadow(0 0 6px var(--accent-2)); }
+.r-dot.b1 { animation: fadeblip 4.5s ease-out infinite; }
+.r-dot.b2 { animation: fadeblip 4.5s ease-out infinite 1.6s; }
+.r-dot.b3 { animation: fadeblip 4.5s ease-out infinite 3.1s; }
+@keyframes fadeblip { 0% { opacity: 1; } 60% { opacity: .15; } 100% { opacity: .05; } }
+
+/* --- doc chips: sweep of light ------------------------------------------ */
+.doc { position: relative; overflow: hidden; }
+.doc::after {
+  content: ""; position: absolute; inset: 0; transform: translateX(-120%);
+  background: linear-gradient(105deg, transparent, color-mix(in srgb, var(--accent) 22%, transparent), transparent);
+}
+.doc:hover::after { transform: translateX(120%); transition: transform .6s ease; }
+
+/* --- viewer: entrance gets a glow --------------------------------------- */
+.viewer-panel { box-shadow: var(--shadow-lg), 0 0 60px color-mix(in srgb, var(--accent) 22%, transparent); }
+
+/* --- respect reduced motion --------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero h1, .portrait::before, .portrait::after, .ring-hud, .status-dot::after,
+  .blip, .marquee-track, .r-spin, .r-dot { animation: none !important; }
+  .hero-fx, .grain, .cursor-glow { display: none; }
+  .stats li::after, .doc::after { display: none; }
+}
 
 /* --- responsive --------------------------------------------------------- */
 @media (max-width: 900px) {

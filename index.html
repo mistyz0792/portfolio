@@ -15,6 +15,10 @@
 
 <a class="skip" href="#about"><span class="th">ข้ามไปเนื้อหา</span><span class="en">Skip to content</span></a>
 
+<div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
 <nav id="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="#top">
@@ -40,14 +44,17 @@
 <!-- ============================ HERO ============================ -->
 <header id="top" class="hero">
   <div class="hero-bg" aria-hidden="true"></div>
+  <canvas id="fx" class="hero-fx" aria-hidden="true"></canvas>
   <div class="wrap hero-inner">
     <div class="portrait">
+      <span class="ring-hud" aria-hidden="true"></span>
       <img src="assets/photo.jpg" alt="Theecharat Klainin">
+      <span class="status-dot" aria-hidden="true"></span>
     </div>
 
     <div class="hero-text">
-      <p class="eyebrow">Instrumentation &amp; Control · Automation · Robotics</p>
-      <h1>Theecharat Klainin</h1>
+      <p class="eyebrow"><span class="blip" aria-hidden="true"></span>Instrumentation &amp; Control · Automation · Robotics</p>
+      <h1 class="shimmer" data-scramble="Theecharat Klainin">Theecharat Klainin</h1>
       <p class="thai-name">ธีร์ชรัสมิ์ คล้ายนิล</p>
       <p class="lede">
         <span class="th">วิศวกรรมอิเล็กทรอนิกส์ (เครื่องมือวัดและควบคุม) จาก มจพ. —
@@ -87,11 +94,24 @@
 
   <div class="wrap">
     <ul class="stats">
-      <li><b>3.45</b><span class="th">เกรดเฉลี่ย · เกียรตินิยมอันดับ 2</span><span class="en">GPA · Second-Class Honors</span></li>
-      <li><b>8</b><span class="th">ผลงานในพอร์ต</span><span class="en">projects documented</span></li>
-      <li><b>4</b><span class="th">ประสบการณ์งานจริง</span><span class="en">hands-on placements</span></li>
-      <li><b>2026</b><span class="th">จบการศึกษา · มจพ.</span><span class="en">graduated · KMUTNB</span></li>
+      <li><b data-count="3.45" data-decimals="2">3.45</b><span class="th">เกรดเฉลี่ย · เกียรตินิยมอันดับ 2</span><span class="en">GPA · Second-Class Honors</span></li>
+      <li><b data-count="8">8</b><span class="th">ผลงานในพอร์ต</span><span class="en">projects documented</span></li>
+      <li><b data-count="4">4</b><span class="th">ประสบการณ์งานจริง</span><span class="en">hands-on placements</span></li>
+      <li><b data-count="2026" data-plain="1">2026</b><span class="th">จบการศึกษา · มจพ.</span><span class="en">graduated · KMUTNB</span></li>
     </ul>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>ESP32</span><i>◆</i><span>Raspberry Pi</span><i>◆</i><span>PLC — Siemens</span><i>◆</i><span>Modbus TCP</span><i>◆</i>
+      <span>Modbus RTU</span><i>◆</i><span>I2C</span><i>◆</i><span>BLE</span><i>◆</i><span>Inverse Kinematics</span><i>◆</i>
+      <span>G-code</span><i>◆</i><span>K-LD7 Radar</span><i>◆</i><span>Python</span><i>◆</i><span>Arduino C++</span><i>◆</i>
+      <span>HMI</span><i>◆</i><span>Onshape</span><i>◆</i><span>TB6600</span><i>◆</i><span>Yaskawa SGDA</span><i>◆</i>
+      <span>ESP32</span><i>◆</i><span>Raspberry Pi</span><i>◆</i><span>PLC — Siemens</span><i>◆</i><span>Modbus TCP</span><i>◆</i>
+      <span>Modbus RTU</span><i>◆</i><span>I2C</span><i>◆</i><span>BLE</span><i>◆</i><span>Inverse Kinematics</span><i>◆</i>
+      <span>G-code</span><i>◆</i><span>K-LD7 Radar</span><i>◆</i><span>Python</span><i>◆</i><span>Arduino C++</span><i>◆</i>
+      <span>HMI</span><i>◆</i><span>Onshape</span><i>◆</i><span>TB6600</span><i>◆</i><span>Yaskawa SGDA</span><i>◆</i>
+    </div>
   </div>
 </header>
 
@@ -250,10 +270,18 @@
   <article class="card">
     <div class="shot radar" aria-hidden="true">
       <svg viewBox="0 0 200 200" role="img">
+        <defs>
+          <radialGradient id="sweepFade" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="currentColor" stop-opacity=".55"/>
+            <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
         <circle cx="100" cy="100" r="88" class="r-ring"/><circle cx="100" cy="100" r="60" class="r-ring"/><circle cx="100" cy="100" r="32" class="r-ring"/>
         <line x1="100" y1="12" x2="100" y2="188" class="r-ring"/><line x1="12" y1="100" x2="188" y2="100" class="r-ring"/>
-        <path d="M100 100 L100 12 A88 88 0 0 1 162 38 Z" class="r-sweep"/>
-        <circle cx="132" cy="66" r="5" class="r-dot"/>
+        <g class="r-spin"><path d="M100 100 L100 12 A88 88 0 0 1 162 38 Z" class="r-sweep"/></g>
+        <circle cx="132" cy="66" r="4.5" class="r-dot b1"/>
+        <circle cx="72" cy="128" r="3.5" class="r-dot b2"/>
+        <circle cx="148" cy="124" r="3" class="r-dot b3"/>
       </svg>
     </div>
     <div class="body">
