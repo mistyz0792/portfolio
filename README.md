@@ -13,7 +13,7 @@ GPA 3.45 / 4.00 · Second-Class Honors · JUL 2022 – MAR 2026
 
 ---
 
-**TH** — รวมผลงานด้านระบบควบคุม หุ่นยนต์ และ IoT ที่เคยทำ ตั้งแต่ปริญญานิพนธ์ควบคุมหุ่นยนต์ SCARA,
+**TH** — รวมผลงานโปรเจคด้านระบบควบคุม หุ่นยนต์ และ IoT ที่เคยทำ ตั้งแต่ปริญญานิพนธ์ควบคุมหุ่นยนต์ SCARA,
 โปรเจกต์หุ่นยนต์เคลื่อนที่กับเรดาร์ที่ประเทศเยอรมนี, ระบบฟาร์มอัตโนมัติด้วย PLC, งานฝึกงาน R&D ด้าน IoT การเกษตร
 ไปจนถึงงานเล็ก ๆ อย่าง CAD, IoT dashboard และ computer vision
 แต่ละโปรเจกต์แยกเป็นโฟลเดอร์ของตัวเอง พร้อมซอร์สโค้ด เอกสาร และไฟล์ออกแบบ
@@ -33,10 +33,10 @@ source code, documentation and design files.
 | # | โปรเจกต์ / Project | ช่วงเวลา | สรุป / Summary | เทคโนโลยี / Stack |
 |---|---|---|---|---|
 | 1 | **[SCARA Robot Control System](projects/01-scara-robot-control/)** | JUN – SEP 2025 | ปริญญานิพนธ์ — Raspberry Pi คำนวณ inverse kinematics แล้วสั่งงาน ESP32 ประจำแต่ละข้อต่อผ่าน I2C รองรับ G-code และงาน pick-and-place | Raspberry Pi · ESP32 · I2C · Python/Tkinter · Arduino C++ · Onshape |
-| 2 | **[Mobile Robot + K-LD7 Radar](projects/02-mobile-robot-kld7-radar/)** | APR – MAY 2026 | โปรเจกต์ที่ Hochschule Esslingen เยอรมนี — สถานีภาคพื้นบน PC อ่านเรดาร์ Doppler K-LD7 และนำทางหุ่นยนต์ไปยังเป้าหมายผ่าน Bluetooth | Python · Tkinter · matplotlib · pyserial · K-LD7 radar · BLE · Arduino |
+| 2 | **[Mobile Robot + K-LD7 Radar](projects/02-mobile-robot-kld7-radar/)** | APR – MAY 2026 | โปรเจกต์ที่ Hochschule Esslingen เยอรมนี — PC อ่านเรดาร์ Doppler K-LD7 และนำทางหุ่นยนต์ไปยังเป้าหมายผ่าน Bluetooth | Python · Tkinter · matplotlib · pyserial · K-LD7 radar · BLE · Arduino |
 | 3 | **[Midori Wolffia — Duckweed Farm](projects/03-wolffia-farming-automation/)** | DEC 2024 – FEB 2025 | เครื่องเพาะเลี้ยงไข่ผำอัตโนมัติด้วย PLC + ESP32 ผ่าน Modbus TCP เก็บข้อมูลบน Google Sheets สั่งงานผ่านแอป Android | PLC · ESP32 · Modbus TCP · HMI · Thunkable · Google Sheets |
 | 4 | **[Automatic Plant Watering](projects/04-plant-watering-blynk/)** | — | ระบบรดน้ำต้นไม้อัตโนมัติ 4 โซน มีตั้งเวลาและโหมดออโต้ตามความชื้นดิน สั่งผ่านมือถือด้วย Blynk | Blynk · Wi-Fi MCU · Soil moisture · Relays |
-| 5 | **[Prior Solution — R&D IoT for Agriculture](projects/05-internship-prior-solution/)** | DEC 2025 – MAR 2026 | สหกิจศึกษา R&D — เปรียบเทียบระบบไฮโดรโปนิกส์ ทำระบบเติมปุ๋ยอัตโนมัติ เซนเซอร์น้ำ/อากาศ และออกแบบโรงเรือน | IoT platform · Sensor systems · Hydroponics · 3D design |
+| 5 | **[Prior Solution — R&D IoT for Agriculture](projects/05-internship-prior-solution/)** | DEC 2025 – MAR 2026 | สหกิจศึกษา R&D — ศึกษาระบบไฮโดรโปนิกส์ ทำระบบเติมปุ๋ยอัตโนมัติ เซนเซอร์น้ำ/อากาศ และออกแบบโรงเรือน | IoT platform · Sensor systems · Hydroponics · 3D design |
 
 ## ผลงานย่อย / Smaller work
 
