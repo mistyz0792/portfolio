@@ -1,0 +1,14 @@
+* text=auto
+
+*.py   text diff=python
+*.ino  text
+*.md   text
+*.html text
+*.css  text
+*.js   text
+
+*.pdf  binary
+*.png  binary
+*.jpg  binary
+*.stl  binary
+*.dxf  binary

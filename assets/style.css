@@ -1,0 +1,203 @@
+/* Theecharat Klainin — engineering portfolio
+   Self-contained: no external fonts, no CDN. Light/dark aware. */
+
+:root {
+  --bg: #f7f8fa;
+  --bg-elev: #ffffff;
+  --bg-sunken: #eef0f4;
+  --fg: #16191f;
+  --fg-dim: #59606d;
+  --fg-faint: #878e9b;
+  --line: #dfe3ea;
+  --accent: #0f6fd6;
+  --accent-soft: #e6f0fc;
+  --shadow: 0 1px 2px rgba(16, 24, 40, .06), 0 8px 24px rgba(16, 24, 40, .06);
+  --radius: 14px;
+}
+
+html[data-theme="dark"] {
+  --bg: #0e1116;
+  --bg-elev: #161b22;
+  --bg-sunken: #0a0d12;
+  --fg: #e7ebf1;
+  --fg-dim: #9aa4b2;
+  --fg-faint: #6d7684;
+  --line: #262d38;
+  --accent: #58a6ff;
+  --accent-soft: #12243c;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 28px rgba(0, 0, 0, .35);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --bg: #0e1116;
+    --bg-elev: #161b22;
+    --bg-sunken: #0a0d12;
+    --fg: #e7ebf1;
+    --fg-dim: #9aa4b2;
+    --fg-faint: #6d7684;
+    --line: #262d38;
+    --accent: #58a6ff;
+    --accent-soft: #12243c;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 28px rgba(0, 0, 0, .35);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Segoe UI", "IBM Plex Sans Thai", "Noto Sans Thai", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { width: min(1080px, 100% - 2.5rem); margin-inline: auto; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* --- language switching ------------------------------------------------- */
+html[data-lang="th"] .en, html[data-lang="en"] .th { display: none; }
+
+/* --- floating controls -------------------------------------------------- */
+.controls {
+  position: fixed; top: 1rem; right: 1rem; z-index: 20;
+  display: flex; gap: .4rem;
+}
+.controls button {
+  min-width: 2.4rem; height: 2.4rem;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: var(--bg-elev); color: var(--fg-dim);
+  font: 600 .8rem/1 "Segoe UI", system-ui, sans-serif;
+  cursor: pointer; box-shadow: var(--shadow);
+  transition: color .15s, border-color .15s;
+}
+.controls button:hover { color: var(--accent); border-color: var(--accent); }
+
+/* --- hero --------------------------------------------------------------- */
+.hero {
+  padding: 5.5rem 0 3rem;
+  background:
+    radial-gradient(1200px 400px at 50% -12%, var(--accent-soft), transparent 70%),
+    var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.eyebrow {
+  margin: 0 0 .6rem; color: var(--accent);
+  font-size: .78rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+}
+.hero h1 { margin: 0; font-size: clamp(2.1rem, 6vw, 3.2rem); line-height: 1.1; letter-spacing: -.02em; }
+.thai-name { margin: .3rem 0 0; font-size: 1.15rem; color: var(--fg-dim); }
+.affil { margin: 1rem 0 0; color: var(--fg-faint); font-size: .92rem; line-height: 1.5; }
+.lede { margin: 1.6rem 0 0; max-width: 62ch; font-size: 1.05rem; color: var(--fg-dim); }
+.links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.8rem; }
+
+/* --- buttons ------------------------------------------------------------ */
+.btn {
+  display: inline-block; padding: .48rem .95rem;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: var(--bg-elev); color: var(--fg-dim);
+  font-size: .875rem; font-weight: 500; white-space: nowrap;
+  transition: border-color .15s, color .15s, background .15s;
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+.btn.primary:hover { filter: brightness(1.1); color: #fff; }
+
+/* --- sections ----------------------------------------------------------- */
+main { padding-block: 3.5rem 1rem; }
+section { margin-bottom: 3.5rem; }
+section > h2 {
+  margin: 0 0 1.5rem; padding-bottom: .6rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.1rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--fg-dim);
+}
+
+/* --- featured cards ----------------------------------------------------- */
+.card {
+  display: grid; grid-template-columns: 300px 1fr; gap: 0;
+  margin-bottom: 1.6rem;
+  background: var(--bg-elev); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+}
+/* Screenshots and renders are shown whole (contain) rather than cropped —
+   a cropped dashboard or GUI loses the very thing it is meant to show. */
+.card .shot { background: var(--bg-sunken); display: grid; place-items: center; padding: 1rem; }
+.card .shot img { width: 100%; height: 100%; max-height: 320px; object-fit: contain; display: block; }
+.card .body { padding: 1.5rem 1.7rem; min-width: 0; }
+
+.num {
+  font: 700 .72rem/1 ui-monospace, "Cascadia Mono", Consolas, monospace;
+  letter-spacing: .12em; color: var(--fg-faint); margin-bottom: .5rem;
+}
+.card h3, .mini h3 { margin: 0; font-size: 1.22rem; line-height: 1.3; letter-spacing: -.01em; }
+.mini h3 { font-size: 1.05rem; }
+.sub { margin: .3rem 0 0; color: var(--fg-dim); font-size: .95rem; }
+.meta {
+  margin: .55rem 0 .9rem; font-size: .8rem; color: var(--fg-faint);
+  font-weight: 600; letter-spacing: .02em;
+}
+.card p, .mini p { color: var(--fg-dim); }
+.card .body > p:not(.sub):not(.meta) { margin: 0 0 1rem; }
+
+.tags { display: flex; flex-wrap: wrap; gap: .35rem; margin: 0 0 1.1rem; padding: 0; list-style: none; }
+.tags li {
+  padding: .18rem .55rem; border-radius: 6px;
+  background: var(--bg-sunken); border: 1px solid var(--line);
+  font: 500 .75rem/1.5 ui-monospace, "Cascadia Mono", Consolas, monospace;
+  color: var(--fg-dim);
+}
+.actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+
+/* radar placeholder for the project with no screenshot */
+.shot.radar { display: grid; place-items: center; padding: 1.5rem; }
+.shot.radar svg { width: 100%; max-width: 210px; height: auto; }
+.r-ring { fill: none; stroke: var(--line); stroke-width: 1.5; }
+.r-sweep { fill: var(--accent); opacity: .18; }
+.r-dot { fill: var(--accent); }
+
+/* --- mini grid ---------------------------------------------------------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.4rem; }
+.mini {
+  display: flex; flex-direction: column;
+  background: var(--bg-elev); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+}
+.mini .shot { display: grid; place-items: center; background: var(--bg-sunken); padding: .9rem; }
+.mini .shot img { width: 100%; height: 160px; object-fit: contain; display: block; }
+.mini .body { padding: 1.25rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
+.mini .body > p { margin: .6rem 0 1rem; font-size: .92rem; flex: 1; }
+
+/* --- skills ------------------------------------------------------------- */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
+.skills > div {
+  padding: 1.25rem 1.4rem;
+  background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius);
+}
+.skills h4 {
+  margin: 0 0 .5rem; font-size: .8rem; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase; color: var(--accent);
+}
+.skills p { margin: 0; font-size: .9rem; color: var(--fg-dim); }
+
+/* --- footer ------------------------------------------------------------- */
+footer {
+  margin-top: 2rem; padding: 2.5rem 0 3rem;
+  border-top: 1px solid var(--line); background: var(--bg-elev);
+  text-align: center;
+}
+footer p { margin: 0 0 .5rem; }
+.fine { color: var(--fg-faint); font-size: .82rem; }
+
+/* --- responsive --------------------------------------------------------- */
+@media (max-width: 760px) {
+  .hero { padding-top: 4.5rem; }
+  .card { grid-template-columns: 1fr; }
+  .card .shot img { height: 200px; }
+  .card .body { padding: 1.3rem; }
+}
