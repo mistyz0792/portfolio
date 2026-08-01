@@ -23,8 +23,6 @@ mobile robot built on exchange in Germany, a PLC-based automated farm, an indust
 plus smaller CAD, IoT-dashboard and computer-vision pieces. Each project lives in its own folder with
 source code, documentation and design files.
 
-> 💡 บนเว็บพอร์ตโฟลิโอสามารถ **เปิดอ่านเอกสารทุกไฟล์ได้ในหน้าเว็บเลย ไม่ต้องดาวน์โหลด**
-> On the site, every document opens in an inline viewer — no download required.
 
 ---
 
