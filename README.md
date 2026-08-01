@@ -63,19 +63,6 @@ source code, documentation and design files.
 | **Control & Robotics** | Inverse kinematics · G-code · stepper & AC servo drives (TB6600, Yaskawa SGDA) · homing with photoelectric sensors |
 | **ภาษา / Languages** | ไทย (ดีมาก) · English — B1.1 (CEFR) |
 
-## โครงสร้าง repo / Repository layout
-
-```
-index.html, assets/          เว็บพอร์ตโฟลิโอ (GitHub Pages) / the portfolio site
-docs/                        เรซูเม่ / résumé
-projects/<nn>-<project>/
-├── README.md      รายละเอียดโปรเจกต์ / project write-up
-├── firmware/      โค้ดฝั่งไมโครคอนโทรลเลอร์ / microcontroller code
-├── software/      โค้ดฝั่ง PC หรือ Raspberry Pi / host-side code
-├── hardware/      ไฟล์ 3D และไฟล์ผลิต / CAD and fabrication files
-├── docs/          เล่มรายงาน สไลด์ โปสเตอร์ / reports, slides, posters
-└── images/        ภาพหน้าจอและภาพเรนเดอร์ / screenshots and renders
-```
 
 ## ติดต่อ / Contact
 
