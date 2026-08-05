@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Object Detection — Roboflow — Theecharat Klainin</title>
+<meta name="description" content="A self-captured dataset, hand-annotated by colour class, versioned and trained on Roboflow until the model draws its own bounding boxes.">
+<link rel="stylesheet" href="assets/style-d.css?v=6">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+</head>
+<body>
+
+<div id="boot"><div class="boot-in"><span id="boot-pct">0</span><i></i></div></div>
+
+<canvas id="stage"></canvas>
+
+<header id="top">
+  <a class="brand" href="index.html">← TK<span>·08</span></a>
+  <nav>
+    <a href="#s5">Specs</a>
+    <a href="#s6">Profile</a>
+    <a href="#s7">Work</a>
+    <a href="#s8">Contact</a>
+  </nav>
+  <div class="tools">
+    <button id="theme" aria-label="Theme">◐</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- 0 -->
+  <section class="scene" id="s0">
+    <div class="copy left">
+      <p class="kicker">Workshop · Computer vision</p>
+      <h1>TEACH IT<span>TO SEE</span></h1>
+      <p class="lede">
+
+        Shoot the frames, draw the boxes, train the model — until it draws the boxes itself.
+      </p>
+      <p class="cue"><i></i>scroll through the dataset</p>
+    </div>
+  </section>
+
+  <!-- 1 -->
+  <section class="scene" id="s1">
+    <div class="copy left">
+      <p class="num">01</p>
+      <h2>It starts with<br>photographs you took.</h2>
+      <p>
+
+        There was no dataset to download. The objects were arranged and shot in place — one camera, one angle, one light — and that choice is what caps how good the model can ever get.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="scene" id="s2">
+    <div class="copy right">
+      <p class="num">02</p>
+      <h2>Every box gets drawn<br>by hand first.</h2>
+      <p>
+
+        Each object gets a bounding box and a class, red against yellow, one at a time. It is dull work, and it is the entire model — label it wrong and it learns exactly that.
+      </p>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="scene" id="s3">
+    <div class="copy left">
+      <p class="num">03</p>
+      <h2>Version it,<br>then train.</h2>
+      <p>
+
+        Roboflow keeps the dataset as versions, so a round of relabelling and retraining can be compared against the last one. The mAP curve is how you know whether the fix actually helped.
+      </p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="scene" id="s4">
+    <div class="copy right">
+      <p class="num">04</p>
+      <h2>After that,<br>the boxes appear on their own.</h2>
+      <p>
+
+        The trained model puts every box up in one frame, with a class and a confidence beside each one — the same work that was done by hand a moment earlier.
+      </p>
+      <div class="stat-row">
+        <div><b>2</b>detection classes</div>
+        <div><b>0.94</b>mAP</div>
+        <div><b>100<i>%</i></b>self-captured dataset</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="scene" id="s5">
+    <div class="copy center wide">
+      <p class="num">05</p>
+      <h2>Specifications</h2>
+      <dl class="specs">
+        <div><dt>PLATFORM</dt><dd>Roboflow</dd></div>
+        <div><dt>TASK</dt><dd>object detection</dd></div>
+        <div><dt>DATASET</dt><dd>entirely self-captured</dd></div>
+        <div><dt>ANNOTATION</dt><dd>hand-drawn bounding boxes</dd></div>
+        <div><dt>CLASSES</dt><dd>red · yellow</dd></div>
+        <div><dt>VERSIONING</dt><dd>versions compared against each other</dd></div>
+        <div><dt>METRIC</dt><dd>mAP</dd></div>
+      </dl>
+      <div class="docs" id="docs"></div>
+    </div>
+  </section>
+
+  <!-- 6 · profile -------------------------------------------------------- -->
+  <section class="scene" id="s6">
+    <div class="copy left wide profile">
+      <p class="num">06</p>
+      <div class="prof-head">
+        <img class="prof-face" src="assets/photo.jpg" alt="Theecharat Klainin">
+        <div>
+          <h2>The one who built it</h2>
+          <p class="prof-name">Theecharat Klainin · ธีร์ชรัสมิ์ คล้ายนิล</p>
+        </div>
+      </div>
+      <p>
+
+        Electronic Engineering Technology (Instrumentation &amp; Control) from KMUTNB.
+        Skilled in ESP32, Raspberry Pi, Modbus TCP, HMI development and control-system design.
+        Interested in industrial automation, robotics and smart agriculture.
+      </p>
+
+      <div class="prof-grid">
+        <div class="prof-block">
+          <h3>Education</h3>
+          <p><b>B.Eng. Electronic Engineering Technology</b><br>
+            King Mongkut's University of Technology North Bangkok<br>
+            <span class="hl">GPA 3.45 · Second-Class Honors</span><br>
+            <span class="muted">JUL 2022 – MAR 2026</span></p>
+        </div>
+        <div class="prof-block">
+          <h3>Certificates</h3>
+          <div class="row" id="certs"></div>
+        </div>
+        <div class="prof-block">
+          <h3>Skills</h3>
+          <ul class="skill-list">
+            <li><b>Hardware</b><span>ESP32 · Arduino · Raspberry Pi · PLC Siemens · Samkoon</span></li>
+            <li><b>Comms</b><span>Modbus RTU · Modbus TCP · I²C · UART · BLE</span></li>
+            <li><b>Software</b><span>Wonderware InTouch · Blynk · ThingsBoard · ThingSpeak</span></li>
+            <li><b>Code</b><span>C · C++ · Python · HTML · CSS</span></li>
+            <li><b>CAD</b><span>Onshape · AutoCAD · 3D printing</span></li>
+            <li><b>Languages</b><span>Thai · English B1.1 (CEFR)</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · the rest of the work ------------------------------------------- -->
+  <section class="scene tall" id="s7">
+    <div class="copy center wide">
+      <p class="num">07</p>
+      <h2>The rest of the work</h2>
+      <p class="hint">tap a card for the full story</p>
+      <div class="cards" id="cards"></div>
+    </div>
+  </section>
+
+  <!-- 8 · contact --------------------------------------------------------- -->
+  <section class="scene" id="s8">
+    <div class="copy center">
+      <img class="face" src="assets/photo.jpg" alt="Theecharat Klainin">
+      <h2 class="name">Theecharat Klainin</h2>
+      <p class="sub">ธีร์ชรัสมิ์ คล้ายนิล · Instrumentation &amp; Control</p>
+      <p class="lede small">
+
+        Open to work in control systems, automation and robotics.
+      </p>
+      <ul class="links">
+        <li><a href="tel:+66929574621">+66 92-957-4621</a><button class="copy-btn" data-copy="+66929574621" data-en="Phone copied">copy</button></li>
+        <li><a href="mailto:k.theecharat@gmail.com">k.theecharat@gmail.com</a><button class="copy-btn" data-copy="k.theecharat@gmail.com" data-en="Email copied">copy</button></li>
+        <li><a href="https://github.com/mistyz0792">github.com/mistyz0792</a></li>
+      </ul>
+      <div class="acts">
+        <button class="btn primary" data-view="docs/resume-theecharat-klainin.pdf" data-preview="assets/previews/resume-theecharat-klainin.png" data-en="Résumé">Open résumé</button>
+        <a class="btn" href="index.html">All work</a>
+      </div>
+      <p class="foot">© 2026 Theecharat Klainin</p>
+    </div>
+  </section>
+
+</main>
+
+<div class="hud" id="hud" aria-hidden="true">
+  <span class="k">STATE</span><span id="hud-a">—</span>
+  <span class="k">STAGE</span><span id="hud-b">—</span>
+  <span class="k">MODEL</span><span id="hud-c">—</span>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<!-- project detail, opened from a card -->
+<div id="detail" hidden>
+  <div class="d-back" data-dclose></div>
+  <article class="d-panel">
+    <button class="d-x" data-dclose aria-label="Close">✕</button>
+    <header class="d-head">
+      <p class="d-when" id="d-when"></p>
+      <h2 id="d-title"></h2>
+      <p class="d-sub" id="d-sub"></p>
+    </header>
+    <div class="d-body">
+      <figure class="d-shot" id="d-shot"></figure>
+      <div class="d-text">
+        <p id="d-lead"></p>
+        <div id="d-detail"></div>
+        <ul class="tags" id="d-tags"></ul>
+        <div class="row" id="d-docs"></div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div id="viewer" hidden>
+  <div class="v-back" data-close></div>
+  <div class="v-panel">
+    <header class="v-bar">
+      <div class="v-nav" id="v-nav">
+        <button id="v-prev" aria-label="Previous">‹</button>
+        <span id="v-count">1 / 1</span>
+        <button id="v-next" aria-label="Next">›</button>
+      </div>
+      <h4 id="v-title"></h4>
+      <div class="v-tools">
+        <a id="v-open" href="#" target="_blank" rel="noopener">New tab</a>
+        <a id="v-dl" href="#" download>Save</a>
+        <button data-close aria-label="Close">✕</button>
+      </div>
+    </header>
+    <div class="v-body" id="v-body"></div>
+  </div>
+</div>
+
+<script type="module" src="assets/app-roboflow.js?v=8"></script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SCARA Robot Control System — Theecharat Klainin</title>
+<meta name="description" content="Instrumentation &amp; Control engineer. A SCARA robot control system, radar-guided mobile robotics, PLC farm automation and industrial IoT R&amp;D.">
+<link rel="stylesheet" href="assets/style-d.css?v=6">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦾</text></svg>">
+</head>
+<body>
+
+<div id="boot"><div class="boot-in"><span id="boot-pct">0</span><i></i></div></div>
+
+<canvas id="stage" data-model="assets/models/scara-arm.glb"></canvas>
+
+<header id="top">
+  <a class="brand" href="index.html">← TK<span>·03</span></a>
+  <nav>
+    <a href="#s4">Specs</a>
+    <a href="#s5">Profile</a>
+    <a href="#s6">Work</a>
+    <a href="#s7">Contact</a>
+  </nav>
+  <div class="tools">
+    <button id="theme" aria-label="Theme">◐</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- 0 · reveal ------------------------------------------------------- -->
+  <section class="scene" id="s0">
+    <div class="copy center">
+      <p class="kicker">Senior thesis · KMUTNB 2025</p>
+      <h1>SCARA<span>CONTROL SYSTEM</span></h1>
+      <p class="lede">
+
+        A robot I rebuilt the control system for, end to end.
+      </p>
+      <p class="cue"><i></i>scroll</p>
+    </div>
+  </section>
+
+  <!-- 1 · the problem -------------------------------------------------- -->
+  <section class="scene" id="s1">
+    <div class="copy left">
+      <p class="num">01</p>
+      <h2>One brain wasn't enough</h2>
+      <p>
+
+        Asking one processor to solve coordinates and pulse every motor at once wrecks the
+        timing. So I split the job.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2 · the architecture --------------------------------------------- -->
+  <section class="scene" id="s2">
+    <div class="copy right">
+      <p class="num">02</p>
+      <h2>The Pi thinks.<br>The ESP32s act.</h2>
+      <p>
+
+        A Raspberry Pi solves the inverse kinematics and sends commands over I²C to one ESP32
+        per joint, each generating its own step and direction pulses.
+      </p>
+      <ul class="bus">
+        <li><b>0x08</b><span>AXIS 1</span></li>
+        <li><b>0x09</b><span>AXIS 2</span></li>
+        <li><b>0x0A</b><span>AXIS 3</span></li>
+        <li><b>0x0B</b><span>AXIS 4</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3 · the result ---------------------------------------------------- -->
+  <section class="scene" id="s3">
+    <div class="copy left">
+      <p class="num">03</p>
+      <h2>Pick and place.<br>Every time.</h2>
+      <p>
+
+        Reads G-code, repeats reliably, with millimetre-level error at some poses.
+      </p>
+      <div class="stat-row">
+        <div><b>100<i>%</i></b>pick-and-place success</div>
+        <div><b>4</b>controlled axes</div>
+        <div><b>445<i>mm</i></b>reach</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · specs --------------------------------------------------------- -->
+  <section class="scene" id="s4">
+    <div class="copy center wide">
+      <p class="num">04</p>
+      <h2>Specifications</h2>
+      <dl class="specs">
+        <div><dt>LINK 1 / LINK 2</dt><dd>210 mm / 235 mm</dd></div>
+        <div><dt>MASTER</dt><dd>Raspberry Pi 3 B+</dd></div>
+        <div><dt>JOINT PROCESSORS</dt><dd>4 × ESP32</dd></div>
+        <div><dt>BUS</dt><dd>I²C · 0x08–0x0B</dd></div>
+        <div><dt>DRIVES</dt><dd>TB6600 stepper · Yaskawa SGDA servo</dd></div>
+        <div><dt>HOMING</dt><dd>OMRON EE-SX674P photoelectric</dd></div>
+        <div><dt>INTERFACE</dt><dd>Python · Tkinter · matplotlib</dd></div>
+        <div><dt>INPUT</dt><dd>G-code · manual jog · pick-and-place</dd></div>
+      </dl>
+      <div class="docs" id="docs"></div>
+    </div>
+  </section>
+
+  <!-- 5 · profile -------------------------------------------------------- -->
+  <section class="scene" id="s5">
+    <div class="copy left wide profile">
+      <p class="num">05</p>
+      <div class="prof-head">
+        <img class="prof-face" src="assets/photo.jpg" alt="Theecharat Klainin">
+        <div>
+          <h2>The one who built it</h2>
+          <p class="prof-name">Theecharat Klainin · ธีร์ชรัสมิ์ คล้ายนิล</p>
+        </div>
+      </div>
+      <p>
+
+        Electronic Engineering Technology (Instrumentation &amp; Control) from KMUTNB.
+        Skilled in ESP32, Raspberry Pi, Modbus TCP, HMI development and control-system design.
+        Interested in industrial automation, robotics and smart agriculture.
+      </p>
+
+      <div class="prof-grid">
+        <div class="prof-block">
+          <h3>Education</h3>
+          <p><b>B.Eng. Electronic Engineering Technology</b><br>
+            King Mongkut's University of Technology North Bangkok<br>
+            <span class="hl">GPA 3.45 · Second-Class Honors</span><br>
+            <span class="muted">JUL 2022 – MAR 2026</span></p>
+        </div>
+        <div class="prof-block">
+          <h3>Certificates</h3>
+          <div class="row" id="certs"></div>
+        </div>
+        <div class="prof-block">
+          <h3>Skills</h3>
+          <ul class="skill-list">
+            <li><b>Hardware</b><span>ESP32 · Arduino · Raspberry Pi · PLC Siemens · Samkoon</span></li>
+            <li><b>Comms</b><span>Modbus RTU · Modbus TCP · I²C · UART · BLE</span></li>
+            <li><b>Software</b><span>Wonderware InTouch · Blynk · ThingsBoard · ThingSpeak</span></li>
+            <li><b>Code</b><span>C · C++ · Python · HTML · CSS</span></li>
+            <li><b>CAD</b><span>Onshape · AutoCAD · 3D printing</span></li>
+            <li><b>Languages</b><span>Thai · English B1.1 (CEFR)</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · the rest of the work ------------------------------------------ -->
+  <section class="scene tall" id="s6">
+    <div class="copy center wide">
+      <p class="num">06</p>
+      <h2>The rest of the work</h2>
+      <p class="hint">tap a card for the full story</p>
+      <div class="cards" id="cards"></div>
+    </div>
+  </section>
+
+  <!-- 7 · contact -------------------------------------------------------- -->
+  <section class="scene" id="s7">
+    <div class="copy center">
+      <img class="face" src="assets/photo.jpg" alt="Theecharat Klainin">
+      <h2 class="name">Theecharat Klainin</h2>
+      <p class="sub">ธีร์ชรัสมิ์ คล้ายนิล · Instrumentation &amp; Control</p>
+      <p class="lede small">
+
+        Open to work in control systems, automation and robotics.
+      </p>
+      <ul class="links">
+        <li><a href="tel:+66929574621">+66 92-957-4621</a><button class="copy-btn" data-copy="+66929574621" data-en="Phone copied">copy</button></li>
+        <li><a href="mailto:k.theecharat@gmail.com">k.theecharat@gmail.com</a><button class="copy-btn" data-copy="k.theecharat@gmail.com" data-en="Email copied">copy</button></li>
+        <li><a href="https://github.com/mistyz0792">github.com/mistyz0792</a></li>
+      </ul>
+      <div class="acts">
+        <button class="btn primary" data-view="docs/resume-theecharat-klainin.pdf" data-preview="assets/previews/resume-theecharat-klainin.png" data-en="Résumé">Open résumé</button>
+        <a class="btn" href="https://github.com/mistyz0792/portfolio">GitHub</a>
+      </div>
+      <p class="foot">© 2026 Theecharat Klainin</p>
+    </div>
+  </section>
+
+</main>
+
+<div class="hud" id="hud" aria-hidden="true">
+  <span class="k">POSE</span><span id="hud-pose">HOME</span>
+  <span class="k">θ1/θ2</span><span id="hud-ang">0.0° / 0.0°</span>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<!-- project detail, opened from a card -->
+<div id="detail" hidden>
+  <div class="d-back" data-dclose></div>
+  <article class="d-panel">
+    <button class="d-x" data-dclose aria-label="Close">✕</button>
+    <header class="d-head">
+      <p class="d-when" id="d-when"></p>
+      <h2 id="d-title"></h2>
+      <p class="d-sub" id="d-sub"></p>
+    </header>
+    <div class="d-body">
+      <figure class="d-shot" id="d-shot"></figure>
+      <div class="d-text">
+        <p id="d-lead"></p>
+        <div id="d-detail"></div>
+        <ul class="tags" id="d-tags"></ul>
+        <div class="row" id="d-docs"></div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div id="viewer" hidden>
+  <div class="v-back" data-close></div>
+  <div class="v-panel">
+    <header class="v-bar">
+      <div class="v-nav" id="v-nav">
+        <button id="v-prev" aria-label="Previous">‹</button>
+        <span id="v-count">1 / 1</span>
+        <button id="v-next" aria-label="Next">›</button>
+      </div>
+      <h4 id="v-title"></h4>
+      <div class="v-tools">
+        <a id="v-open" href="#" target="_blank" rel="noopener">New tab</a>
+        <a id="v-dl" href="#" download>Save</a>
+        <button data-close aria-label="Close">✕</button>
+      </div>
+    </header>
+    <div class="v-body" id="v-body"></div>
+  </div>
+</div>
+
+<script type="module" src="assets/app-d.js?v=13"></script>
+</body>
+</html>

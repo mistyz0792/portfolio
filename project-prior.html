@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prior Solution — Theecharat Klainin</title>
+<meta name="description" content="R&amp;D IoT for agriculture at Prior Solution: an automatic fertiliser-dosing loop, water and climate sensing, a farm-management platform and the 3D greenhouse design behind them.">
+<link rel="stylesheet" href="assets/style-d.css?v=6">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>">
+</head>
+<body>
+
+<div id="boot"><div class="boot-in"><span id="boot-pct">0</span><i></i></div></div>
+
+<canvas id="stage"></canvas>
+
+<header id="top">
+  <a class="brand" href="index.html">← TK<span>·02</span></a>
+  <nav>
+    <a href="#s5">Specs</a>
+    <a href="#s6">Profile</a>
+    <a href="#s7">Work</a>
+    <a href="#s8">Contact</a>
+  </nav>
+  <div class="tools">
+    <button id="theme" aria-label="Theme">◐</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- 0 · reveal -------------------------------------------------------- -->
+  <section class="scene" id="s0">
+    <div class="copy left">
+      <p class="kicker">Co-operative education · DEC 2025 – MAR 2026</p>
+      <h1>PRIOR<span>SOLUTION</span></h1>
+      <p class="lede">
+
+        R&amp;D IoT for agriculture: cut the manual labour, without losing the economics that make it worth building.
+      </p>
+      <p class="cue"><i></i>scroll through a dosing cycle</p>
+    </div>
+  </section>
+
+  <!-- 1 · the problem --------------------------------------------------- -->
+  <section class="scene" id="s1">
+    <div class="copy left">
+      <p class="num">01</p>
+      <h2>The solution weakens daily.<br>Someone has to go and measure it.</h2>
+      <p>
+
+        The crop pulls nutrient out of the water continuously, so EC drifts down and pH creeps up.
+        The manual answer is a person walking tank to tank with a meter and topping up by hand — which does not
+        scale to a house this size. That is exactly the labour the brief asked to remove.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2 · the dosing skid ------------------------------------------------ -->
+  <section class="scene" id="s2">
+    <div class="copy right">
+      <p class="num">02</p>
+      <h2>Hit the threshold<br>and A and B inject themselves.</h2>
+      <p>
+
+        Once EC falls below setpoint, two dosing pumps inject concentrate A and B into the mixing
+        pot in ratio. The EC and pH probes sitting in that pot read back continuously, and dosing stops when the
+        values are inside band again. Nobody walks to the tank.
+      </p>
+    </div>
+  </section>
+
+  <!-- 3 · delivery -------------------------------------------------------- -->
+  <section class="scene" id="s3">
+    <div class="copy left">
+      <p class="num">03</p>
+      <h2>Corrected once.<br>Delivered to every bench.</h2>
+      <p>
+
+        The corrected solution leaves the mixing pot along the main and branches into every bench,
+        so the entire house lands on one consistent value in a single pass — something hand-mixing can never
+        make uniform.
+      </p>
+    </div>
+  </section>
+
+  <!-- 4 · the cabinet ----------------------------------------------------- -->
+  <section class="scene" id="s4">
+    <div class="copy right">
+      <p class="num">04</p>
+      <h2>One cabinet<br>runs the whole house.</h2>
+      <p>
+
+        Breakers, a power supply, a PLC, a bank of relays and an ESP32 all share the back plate.
+        The door carries an HMI, twenty-four buttons and an emergency stop. I designed both the panel layout and
+        the 3D model of the house it controls.
+      </p>
+      <div class="stat-row">
+        <div><b>12</b>benches in the layout</div>
+        <div><b>1.8<i>mS/cm</i></b>EC setpoint held</div>
+        <div><b>111<i>pages</i></b>co-op report</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · specs ---------------------------------------------------------- -->
+  <section class="scene" id="s5">
+    <div class="copy center wide">
+      <p class="num">05</p>
+      <h2>Specifications</h2>
+      <dl class="specs">
+        <div><dt>COMPANY</dt><dd>Prior Solution Co., Ltd.</dd></div>
+        <div><dt>ROLE</dt><dd>Co-op student · R&amp;D IoT for Agriculture</dd></div>
+        <div><dt>CONTROL</dt><dd>PLC + ESP32</dd></div>
+        <div><dt>PANEL</dt><dd>breakers · PSU · relays · terminals</dd></div>
+        <div><dt>OPERATOR</dt><dd>HMI · 24 buttons · e-stop</dd></div>
+        <div><dt>DOSING</dt><dd>ratio-injected concentrate A + B</dd></div>
+        <div><dt>WATER SENSING</dt><dd>EC · pH</dd></div>
+        <div><dt>CLIMATE SENSING</dt><dd>temperature · humidity</dd></div>
+        <div><dt>GROWING</dt><dd>hydroponics · several systems benchmarked</dd></div>
+        <div><dt>SOFTWARE</dt><dd>farm-management platform</dd></div>
+        <div><dt>DESIGN</dt><dd>3D greenhouse and panel layout</dd></div>
+      </dl>
+      <div class="docs" id="docs"></div>
+    </div>
+  </section>
+
+  <!-- 6 · profile -------------------------------------------------------- -->
+  <section class="scene" id="s6">
+    <div class="copy left wide profile">
+      <p class="num">06</p>
+      <div class="prof-head">
+        <img class="prof-face" src="assets/photo.jpg" alt="Theecharat Klainin">
+        <div>
+          <h2>The one who built it</h2>
+          <p class="prof-name">Theecharat Klainin · ธีร์ชรัสมิ์ คล้ายนิล</p>
+        </div>
+      </div>
+      <p>
+
+        Electronic Engineering Technology (Instrumentation &amp; Control) from KMUTNB.
+        Skilled in ESP32, Raspberry Pi, Modbus TCP, HMI development and control-system design.
+        Interested in industrial automation, robotics and smart agriculture.
+      </p>
+
+      <div class="prof-grid">
+        <div class="prof-block">
+          <h3>Education</h3>
+          <p><b>B.Eng. Electronic Engineering Technology</b><br>
+            King Mongkut's University of Technology North Bangkok<br>
+            <span class="hl">GPA 3.45 · Second-Class Honors</span><br>
+            <span class="muted">JUL 2022 – MAR 2026</span></p>
+        </div>
+        <div class="prof-block">
+          <h3>Certificates</h3>
+          <div class="row" id="certs"></div>
+        </div>
+        <div class="prof-block">
+          <h3>Skills</h3>
+          <ul class="skill-list">
+            <li><b>Hardware</b><span>ESP32 · Arduino · Raspberry Pi · PLC Siemens · Samkoon</span></li>
+            <li><b>Comms</b><span>Modbus RTU · Modbus TCP · I²C · UART · BLE</span></li>
+            <li><b>Software</b><span>Wonderware InTouch · Blynk · ThingsBoard · ThingSpeak</span></li>
+            <li><b>Code</b><span>C · C++ · Python · HTML · CSS</span></li>
+            <li><b>CAD</b><span>Onshape · AutoCAD · 3D printing</span></li>
+            <li><b>Languages</b><span>Thai · English B1.1 (CEFR)</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · the rest of the work ------------------------------------------- -->
+  <section class="scene tall" id="s7">
+    <div class="copy center wide">
+      <p class="num">07</p>
+      <h2>The rest of the work</h2>
+      <p class="hint">tap a card for the full story</p>
+      <div class="cards" id="cards"></div>
+    </div>
+  </section>
+
+  <!-- 8 · contact --------------------------------------------------------- -->
+  <section class="scene" id="s8">
+    <div class="copy center">
+      <img class="face" src="assets/photo.jpg" alt="Theecharat Klainin">
+      <h2 class="name">Theecharat Klainin</h2>
+      <p class="sub">ธีร์ชรัสมิ์ คล้ายนิล · Instrumentation &amp; Control</p>
+      <p class="lede small">
+
+        Open to work in control systems, automation and robotics.
+      </p>
+      <ul class="links">
+        <li><a href="tel:+66929574621">+66 92-957-4621</a><button class="copy-btn" data-copy="+66929574621" data-en="Phone copied">copy</button></li>
+        <li><a href="mailto:k.theecharat@gmail.com">k.theecharat@gmail.com</a><button class="copy-btn" data-copy="k.theecharat@gmail.com" data-en="Email copied">copy</button></li>
+        <li><a href="https://github.com/mistyz0792">github.com/mistyz0792</a></li>
+      </ul>
+      <div class="acts">
+        <button class="btn primary" data-view="docs/resume-theecharat-klainin.pdf" data-preview="assets/previews/resume-theecharat-klainin.png" data-en="Résumé">Open résumé</button>
+        <a class="btn" href="index.html">All work</a>
+      </div>
+      <p class="foot">© 2026 Theecharat Klainin</p>
+    </div>
+  </section>
+
+</main>
+
+<div class="hud" id="hud" aria-hidden="true">
+  <span class="k">STATE</span><span id="hud-a">—</span>
+  <span class="k">EC</span><span id="hud-b">—</span>
+  <span class="k">pH</span><span id="hud-c">—</span>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<!-- project detail, opened from a card -->
+<div id="detail" hidden>
+  <div class="d-back" data-dclose></div>
+  <article class="d-panel">
+    <button class="d-x" data-dclose aria-label="Close">✕</button>
+    <header class="d-head">
+      <p class="d-when" id="d-when"></p>
+      <h2 id="d-title"></h2>
+      <p class="d-sub" id="d-sub"></p>
+    </header>
+    <div class="d-body">
+      <figure class="d-shot" id="d-shot"></figure>
+      <div class="d-text">
+        <p id="d-lead"></p>
+        <div id="d-detail"></div>
+        <ul class="tags" id="d-tags"></ul>
+        <div class="row" id="d-docs"></div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div id="viewer" hidden>
+  <div class="v-back" data-close></div>
+  <div class="v-panel">
+    <header class="v-bar">
+      <div class="v-nav" id="v-nav">
+        <button id="v-prev" aria-label="Previous">‹</button>
+        <span id="v-count">1 / 1</span>
+        <button id="v-next" aria-label="Next">›</button>
+      </div>
+      <h4 id="v-title"></h4>
+      <div class="v-tools">
+        <a id="v-open" href="#" target="_blank" rel="noopener">New tab</a>
+        <a id="v-dl" href="#" download>Save</a>
+        <button data-close aria-label="Close">✕</button>
+      </div>
+    </header>
+    <div class="v-body" id="v-body"></div>
+  </div>
+</div>
+
+<script type="module" src="assets/app-prior.js?v=15"></script>
+</body>
+</html>
